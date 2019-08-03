@@ -18,37 +18,41 @@ public class PlayerController : MonoBehaviour
     private bool wasRight = false;
     private bool wasJump = false;
 
-    public bool allowAllMovement = true;
-
+    public GameObject limbPool;
     private Rigidbody rb;
+    private FallingLimb fLScript;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        fLScript = limbPool.GetComponent<FallingLimb>();
     }
 
     // I read that input management should be here. I will do everything in FixedUpdate for the moment
     // Don't hesitate to correct the code if a miss something :)
     void Update()
     {
-        if (allowAllMovement) resetState();
+
     }
 
     void FixedUpdate()
     {
+        if(GameManager.instance.godMode) {
+          resetState();
+        }
         Vector3 movement = ComputedVector();
-        rb.AddForce(movement);
+        rb.MovePosition(transform.position + (movement * Time.fixedDeltaTime));
     }
 
     void resetState()
     {
-        lockLeft = false;
-        lockRight = false;
-        lockJump = false;
-        lockAction = false;
-        wasLeft = false;
-        wasRight = false;
-        wasJump = false;
+      lockLeft = false;
+      lockRight = false;
+      lockJump = false;
+      lockAction = false;
+      wasLeft = false;
+      wasRight = false;
+      wasJump = false;
     }
 
     Vector3 ComputedVector()
@@ -56,56 +60,76 @@ public class PlayerController : MonoBehaviour
       Vector3 result = new Vector3();
 
       float vertical = Input.GetAxis("Vertical");
-      if(vertical > 0 && !lockJump) {
+      if(vertical > 0 && !lockJump)
+      {
         wasJump = true;
         result.y = jumpSpeed;
+        // god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseFeet();
+        }
       }
 
-      if (vertical <= 0 && wasJump)
+      if(vertical <= 0 && wasJump)
       {
-          lockJump = true;
+        lockJump = true;
+        fLScript.LoseFeet();
       }
 
-      if (Input.GetButtonUp("Action") && !lockAction)
+      if(Input.GetButtonUp("Action") && !lockAction)
       {
-          // TODO
+        // TODO
+
       }
 
-      if (Input.GetButtonDown("Action"))
+      if(Input.GetButtonDown("Action"))
       {
-          lockAction = true;
+        lockAction = true;
+        fLScript.LoseHead();
       }
 
       float horizontal = Input.GetAxis("Horizontal");
-      if (horizontal < 0)
+      if(horizontal < 0)
       {
-          wasLeft = true;
+        wasLeft = true;
 
-          if (wasRight)
-          {
-              lockRight = true;
-          }
-      }
-      else if (horizontal > 0)
+        if (wasRight)
+        {
+          lockRight = true;
+          fLScript.LoseLeftArm();
+        }
+        // god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseLeftArm();
+        }
+      } else if (horizontal > 0)
       {
-          wasRight = true;
+        wasRight = true;
 
-          if (wasLeft)
-          {
-              lockLeft = true;
-          }
-      }
-      else
-      { //getAxisHorizontal = 0
-          if (wasLeft)
-          {
-              lockLeft = true;
-          }
+        if(wasLeft)
+        {
+          lockLeft = true;
+          fLScript.LoseRightArm();
+        }
+        //god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseRightArm();
+        }
+      } else { //getAxisHorizontal = 0
+        if(wasLeft)
+        {
+          lockLeft = true;
+          fLScript.LoseRightArm();
+        }
 
-          if (wasRight)
-          {
-              lockRight = true;
-          }
+        if(wasRight)
+        {
+          lockRight = true;
+          fLScript.LoseLeftArm();
+        }
       }
 
       if(horizontal < 0 && !lockLeft) {
