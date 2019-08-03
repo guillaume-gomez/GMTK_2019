@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6021170687497770680}
   - component: {fileID: 6021170687497770683}
   - component: {fileID: 9054033860668887481}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CapsuleRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3188256877176339887}
   - component: {fileID: 4616797674920499636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LimbPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,6 +201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LimbRightArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
@@ -282,6 +287,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Feet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
@@ -372,6 +382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LimbLeftArm
       objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -452,6 +467,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
