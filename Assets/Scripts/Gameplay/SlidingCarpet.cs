@@ -11,8 +11,8 @@ public class SlidingCarpet : MonoBehaviour
     }
 
     [Header("Parameters")]
-    [SerializeField] private Direction direction;
-    [SerializeField] [Range(0,1)] private float speed;
+    [SerializeField] private Direction direction = Direction.RIGHT;
+    [SerializeField] [Range(0,1)] private float speed = 0.1f;
 
     private Collider m_currentCollider;
     private bool m_isTriggered = false;
