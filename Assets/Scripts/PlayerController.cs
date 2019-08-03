@@ -63,16 +63,19 @@ public class PlayerController : MonoBehaviour
       if(vertical <= 0 && wasJump)
       {
         lockJump = true;
+        fLScript.LoseFeet();
       }
 
       if(Input.GetButtonUp("Action") && !lockAction)
       {
         // TODO
+
       }
 
       if(Input.GetButtonDown("Action"))
       {
         lockAction = true;
+        fLScript.LoseHead();
       }
 
       float horizontal = Input.GetAxis("Horizontal");
@@ -83,6 +86,7 @@ public class PlayerController : MonoBehaviour
         if (wasRight)
         {
           lockRight = true;
+          fLScript.LoseRightArm();
         }
       } else if (horizontal > 0)
       {
@@ -91,18 +95,19 @@ public class PlayerController : MonoBehaviour
         if(wasLeft)
         {
           lockLeft = true;
-          fLScript.LoseleftArm();
+          fLScript.LoseLeftArm();
         }
       } else { //getAxisHorizontal = 0
         if(wasLeft)
         {
           lockLeft = true;
-          fLScript.LoseleftArm();
+          fLScript.LoseLeftArm();
         }
 
         if(wasRight)
         {
           lockRight = true;
+          fLScript.LoseRightArm();
         }
       }
 
