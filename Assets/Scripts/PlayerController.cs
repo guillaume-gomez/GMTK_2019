@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool wasLeft = false;
     private bool wasRight = false;
     private bool wasJump = false;
+
     private Rigidbody rb;
     private FallingLimb fLScript;
 
