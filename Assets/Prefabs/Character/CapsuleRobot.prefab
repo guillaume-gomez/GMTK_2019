@@ -128,11 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9fae6d4766f3d4faa5890b2be59841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 1
-  speed: 1
+  jumpSpeed: 10
+  speed: 10
   accelerationTime: 0.05
   decelerationTime: 0.05
-  allowAllMovement: 1
   limbPool: {fileID: 7128784893615114263}
 --- !u!1 &7128784893615114263
 GameObject:
@@ -370,14 +369,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6021170687497770687}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: detachForce
-      value: 3.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: detachRotationForce
-      value: 13.7
-      objectReference: {fileID: 0}
     - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
       propertyPath: m_Name

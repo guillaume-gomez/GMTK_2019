@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float accelerationTime = 0.05f;
     public float decelerationTime = 0.05f;
 
-    public bool allowAllMovement = true;
     public GameObject limbPool;
 
     private bool lockLeft = false;
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviour
     // Don't hesitate to correct the code if a miss something :)
     void Update()
     {
-        if (allowAllMovement) resetState();
     }
 
     void FixedUpdate()
