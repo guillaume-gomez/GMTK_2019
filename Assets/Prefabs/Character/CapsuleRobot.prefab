@@ -132,6 +132,7 @@ MonoBehaviour:
   speed: 1
   accelerationTime: 0.05
   decelerationTime: 0.05
+  allowAllMovement: 1
   limbPool: {fileID: 7128784893615114263}
 --- !u!1 &7128784893615114263
 GameObject:

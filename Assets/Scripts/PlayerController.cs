@@ -47,15 +47,6 @@ public class PlayerController : MonoBehaviour
 
     void resetState()
     {
-<<<<<<< HEAD
-        lockLeft = false;
-        lockRight = false;
-        lockJump = false;
-        lockAction = false;
-        wasLeft = false;
-        wasRight = false;
-        wasJump = false;
-=======
       lockLeft = false;
       lockRight = false;
       lockJump = false;
@@ -63,7 +54,6 @@ public class PlayerController : MonoBehaviour
       wasLeft = false;
       wasRight = false;
       wasJump = false;
->>>>>>> master
     }
 
     Vector3 ComputedVector()
@@ -82,53 +72,6 @@ public class PlayerController : MonoBehaviour
         }
       }
 
-<<<<<<< HEAD
-      if (vertical <= 0 && wasJump)
-      {
-          lockJump = true;
-      }
-
-      if (Input.GetButtonUp("Action") && !lockAction)
-      {
-          // TODO
-      }
-
-      if (Input.GetButtonDown("Action"))
-      {
-          lockAction = true;
-      }
-
-      float horizontal = Input.GetAxis("Horizontal");
-      if (horizontal < 0)
-      {
-          wasLeft = true;
-
-          if (wasRight)
-          {
-              lockRight = true;
-          }
-      }
-      else if (horizontal > 0)
-      {
-          wasRight = true;
-
-          if (wasLeft)
-          {
-              lockLeft = true;
-          }
-      }
-      else
-      { //getAxisHorizontal = 0
-          if (wasLeft)
-          {
-              lockLeft = true;
-          }
-
-          if (wasRight)
-          {
-              lockRight = true;
-          }
-=======
       if(vertical <= 0 && wasJump)
       {
         lockJump = true;
@@ -188,7 +131,6 @@ public class PlayerController : MonoBehaviour
           lockRight = true;
           fLScript.LoseLeftArm();
         }
->>>>>>> master
       }
 
       if(horizontal < 0 && !lockLeft) {
