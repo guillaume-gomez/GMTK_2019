@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrust = 15f;
     public float jumpSpeed = 1.0f;
     public float speed = 1.0f;
     public float accelerationTime = 0.05f;
-    public float decelerationTIme = 0.05f;
+    public float decelerationTime = 0.05f;
 
     private bool lockLeft = false;
     private bool lockRight = false;
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = ComputedVector();
-        rb.MovePosition(transform.position + (movement * thrust * Time.fixedDeltaTime));
+        rb.MovePosition(transform.position + (movement * Time.fixedDeltaTime));
     }
 
     void resetState() {
