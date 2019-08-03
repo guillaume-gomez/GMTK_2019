@@ -28,6 +28,16 @@ public class Teleporter : MonoBehaviour
 
         m_currentCollider = other;
         onTeleporterCollision.Raise();
+
+        if (!otherTeleporterPosition)
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            Debug.LogError("otherTeleporterPosition modular variable not set, can not teleport");
+#endif
+            return;
+        }
+
+        m_currentCollider.transform.position = otherTeleporterPosition.Value;
     }
 
     public void OnOtherTeleporterCollision()
@@ -41,19 +51,5 @@ public class Teleporter : MonoBehaviour
         }
 
         teleporterPosition.Value = transform.position;
-    }
-
-    public void OnOtherTeleporterPosReceived()
-    {
-        if (m_currentCollider == null) return;
-        if (!otherTeleporterPosition)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("otherTeleporterPosition modular variable not set, can not teleport");
-#endif
-            return;
-        }
-
-        m_currentCollider.transform.position = otherTeleporterPosition.Value;
     }
 }
