@@ -193,11 +193,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CapsuleRobot
       objectReference: {fileID: 0}
-    - target: {fileID: 6021170687497770682, guid: 8446465ed6882b34fbe2ac3cf8146047,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6021170687497770687, guid: 8446465ed6882b34fbe2ac3cf8146047,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -206,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 6021170687497770687, guid: 8446465ed6882b34fbe2ac3cf8146047,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 6021170687497770687, guid: 8446465ed6882b34fbe2ac3cf8146047,
         type: 3}
@@ -261,24 +256,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 61809029}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &552115521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6021170687497770682, guid: 8446465ed6882b34fbe2ac3cf8146047,
-    type: 3}
-  m_PrefabInstance: {fileID: 61809029}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &552115522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552115521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7932dea9a8183744498c446d031f5d75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &602997519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1227,10 +1204,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5958076899610170315, guid: 9d057a707daf5c0409c61e5ab8bd263f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5958076899610170318, guid: 9d057a707daf5c0409c61e5ab8bd263f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 5958076899610170318, guid: 9d057a707daf5c0409c61e5ab8bd263f,
         type: 3}
@@ -2130,6 +2112,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6641622148915352187, guid: b6ecbca79f1674a4787a680f7dbb336a,
+        type: 3}
+      propertyPath: gameEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 80755076444f0114ba6dc6a2cbaf2631,
+        type: 2}
     - target: {fileID: 3717606746271294970, guid: b6ecbca79f1674a4787a680f7dbb336a,
         type: 3}
       propertyPath: m_IsActive
