@@ -124,4 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 15
-  rb: {fileID: 6021170687497770683}
+  jumpSpeed: 1
+  speed: 1
+  accelerationTime: 0.05
+  decelerationTIme: 0.05
