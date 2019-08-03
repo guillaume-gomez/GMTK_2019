@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public float jumpSpeed = 1.0f;
     public float speed = 1.0f;
-    public float accelerationTime = 0.05f;
-    public float decelerationTime = 0.05f;
+    public AnimationCurve horizontalCurve;
+    public AnimationCurve verticalCurve;
 
     private bool lockLeft = false;
     private bool lockRight = false;
@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public GameObject limbPool;
     private Rigidbody rb;
     private FallingLimb fLScript;
+    private float horizontaltimeElapsed;
+    private float verticaltimeElapsed;
 
     void Start()
     {
@@ -63,7 +65,9 @@ public class PlayerController : MonoBehaviour
       if(vertical > 0 && !lockJump)
       {
         wasJump = true;
-        result.y = jumpSpeed;
+        verticaltimeElapsed += Time.deltaTime;
+        float acceleration = verticalCurve.Evaluate(verticaltimeElapsed);
+        result.y = jumpSpeed * acceleration;
         // god mode
         if(GameManager.instance.godMode)
         {
@@ -74,7 +78,12 @@ public class PlayerController : MonoBehaviour
       if(vertical <= 0 && wasJump)
       {
         lockJump = true;
+        verticaltimeElapsed = 0.0f;
         fLScript.LoseFeet();
+      }
+
+      if(GameManager.instance.godMode && vertical == 0) {
+        verticaltimeElapsed = 0.0f;
       }
 
       if(Input.GetButtonUp("Action") && !lockAction)
@@ -89,8 +98,14 @@ public class PlayerController : MonoBehaviour
         fLScript.LoseHead();
       }
 
+
       float horizontal = Input.GetAxis("Horizontal");
-      if(horizontal < 0)
+      // if we pressed left and right at the same time
+      if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)) {
+        horizontal = 0.0f;
+      }
+
+      if(horizontal < 0.0f)
       {
         wasLeft = true;
 
@@ -104,7 +119,7 @@ public class PlayerController : MonoBehaviour
         {
           fLScript.LoseLeftArm();
         }
-      } else if (horizontal > 0)
+      } else if (horizontal > 0.0f)
       {
         wasRight = true;
 
@@ -132,10 +147,16 @@ public class PlayerController : MonoBehaviour
         }
       }
 
-      if(horizontal < 0 && !lockLeft) {
-        result.x = - speed;
-      } else if (horizontal > 0 && !lockRight) {
-        result.x = speed;
+      if(horizontal < 0.0f && !lockLeft) {
+        horizontaltimeElapsed += Time.deltaTime;
+        float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
+        result.x = - speed * acceleration;
+      } else if (horizontal > 0.0f && !lockRight) {
+        horizontaltimeElapsed += Time.deltaTime;
+        float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
+        result.x = speed * acceleration;
+      } else {
+        horizontaltimeElapsed = 0.0f;
       }
       // return the computed vector3
       return result;

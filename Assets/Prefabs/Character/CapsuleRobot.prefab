@@ -128,10 +128,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9fae6d4766f3d4faa5890b2be59841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 1
-  speed: 1
-  accelerationTime: 0.05
-  decelerationTime: 0.05
+  jumpSpeed: 10
+  speed: 10
+  horizontalCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6254077
+      value: 0.21644695
+      inSlope: 1.1124756
+      outSlope: 1.1124756
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.89336413
+      value: 0.08794668
+      inSlope: 2.2447722
+      outSlope: 2.2447722
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  verticalCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.17839873
+      value: 0.96790564
+      inSlope: 0.09341502
+      outSlope: 0.09341502
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.39758742
+      value: 0.2716282
+      inSlope: -1.7242643
+      outSlope: -1.7242643
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.71432376
+      value: 0.9505286
+      inSlope: -0.688423
+      outSlope: -0.688423
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9980469
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   limbPool: {fileID: 7128784893615114263}
 --- !u!1 &7128784893615114263
 GameObject:
@@ -369,14 +460,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6021170687497770687}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: detachForce
-      value: 3.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: detachRotationForce
-      value: 13.7
-      objectReference: {fileID: 0}
     - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
       propertyPath: m_Name
