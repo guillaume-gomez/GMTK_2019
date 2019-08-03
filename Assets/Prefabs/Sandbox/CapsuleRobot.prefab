@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6021170687497770681}
   - component: {fileID: 6021170687497770680}
   - component: {fileID: 6021170687497770683}
-  - component: {fileID: 6021170687497770684}
+  - component: {fileID: 9054033860668887481}
   m_Layer: 0
   m_Name: CapsuleRobot
   m_TagString: Untagged
@@ -111,7 +111,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6021170687497770684
+--- !u!114 &9054033860668887481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6021170687497770682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 801e464fe29c55944b84dc5d4c848c10, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f9fae6d4766f3d4faa5890b2be59841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 15
