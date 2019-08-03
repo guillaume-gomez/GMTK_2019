@@ -222,24 +222,6 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.6254077
-      value: 0.21644695
-      inSlope: 1.1124756
-      outSlope: 1.1124756
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.89336413
-      value: 0.08794668
-      inSlope: 2.2447722
-      outSlope: 2.2447722
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
       time: 1
       value: 1
       inSlope: 2
@@ -257,42 +239,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.17839873
-      value: 0.96790564
-      inSlope: 0.09341502
-      outSlope: 0.09341502
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.39758742
-      value: 0.2716282
-      inSlope: -1.7242643
-      outSlope: -1.7242643
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.71432376
-      value: 0.9505286
-      inSlope: -0.688423
-      outSlope: -0.688423
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9980469
-      value: 0
+      time: 1
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -302,8 +257,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  limbPool: {fileID: 7128784893615114263, guid: 8446465ed6882b34fbe2ac3cf8146047,
-    type: 3}
+  limbPool: {fileID: 7191863357113929062}
 --- !u!1 &7191863357113929062
 GameObject:
   m_ObjectHideFlags: 0
