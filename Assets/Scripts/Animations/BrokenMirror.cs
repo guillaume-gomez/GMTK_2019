@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using RoboRyanTron.Unite2017.Events;
 public class BrokenMirror : MonoBehaviour
 {
     public bool animate = false;
     public float duration = 0.6f;
+
+    public GameEvent gameEvent;
+
+    public bool playEvent = false; 
 
     private float m_startScale;
 
