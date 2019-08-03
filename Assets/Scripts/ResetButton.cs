@@ -7,6 +7,6 @@ public class ResetButton : MonoBehaviour
 {
   public void OnClick()
   {
-    Debug.Log("buton cliked");
+    GameManager.instance.Restart();
   }
 }
