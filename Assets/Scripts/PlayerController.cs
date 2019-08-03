@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
       {
         wasJump = true;
         result.y = jumpSpeed;
+        // god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseFeet();
+        }
       }
 
       if(vertical <= 0 && wasJump)
@@ -94,6 +99,11 @@ public class PlayerController : MonoBehaviour
           lockRight = true;
           fLScript.LoseLeftArm();
         }
+        // god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseLeftArm();
+        }
       } else if (horizontal > 0)
       {
         wasRight = true;
@@ -101,6 +111,11 @@ public class PlayerController : MonoBehaviour
         if(wasLeft)
         {
           lockLeft = true;
+          fLScript.LoseRightArm();
+        }
+        //god mode
+        if(GameManager.instance.godMode)
+        {
           fLScript.LoseRightArm();
         }
       } else { //getAxisHorizontal = 0
