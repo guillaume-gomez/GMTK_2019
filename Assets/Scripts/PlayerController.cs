@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(GameManager.instance.godMode) {
+          resetState();
+        }
         Vector3 movement = ComputedVector();
         rb.MovePosition(transform.position + (movement * Time.fixedDeltaTime));
     }
