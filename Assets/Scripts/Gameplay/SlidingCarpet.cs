@@ -18,25 +18,17 @@ public class SlidingCarpet : MonoBehaviour
     private bool m_isTriggered = false;
     private Vector3 m_slidingVector = Vector3.zero;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("on collision");
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other == null) return;
         if (other.attachedRigidbody == null) return;
 
-        Debug.Log("on trigger");
         m_isTriggered = true;
         m_currentCollider = other;
-
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("on trigger exit");
         m_isTriggered = false;
         m_currentCollider = null;
     }
