@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrust = 15f;
+    public float jumpSpeed = 1.0f;
+    public float speed = 1.0f;
+    public float accelerationTime = 0.05f;
+    public float decelerationTime = 0.05f;
 
     private bool lockLeft = false;
     private bool lockRight = false;
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = ComputedVector();
-        rb.AddForce(movement * thrust);
+        rb.AddForce(movement);
     }
 
     void resetState()
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour
       if(vertical > 0 && !lockJump)
       {
         wasJump = true;
-        result.y = thrust;
+        result.y = jumpSpeed;
       }
 
       if(vertical <= 0 && wasJump)
@@ -111,12 +114,10 @@ public class PlayerController : MonoBehaviour
         }
       }
 
-      if(horizontal < 0 && !lockLeft)
-      {
-        result.x = horizontal;
-      } else if (horizontal > 0 && !lockRight)
-      {
-        result.x = horizontal;
+      if(horizontal < 0 && !lockLeft) {
+        result.x = - speed;
+      } else if (horizontal > 0 && !lockRight) {
+        result.x = speed;
       }
       // return the computed vector3
       return result;
