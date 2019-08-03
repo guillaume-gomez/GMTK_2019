@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
       if(Input.GetButtonUp("Action") && !lockAction)
       {
         // TODO
+        //SoundManager.PlaySound("");
 
       }
 
