@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using RoboRyanTron.Unite2017.Events;
+using RoboRyanTron.Unite2017.Variables;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     private int level = 0;
     public bool godMode = true;
     public GameEvent onPlayerDiedEvent;
+    public BoolVariable allowPlayerInput;
+
     public bool playOnPlayerDiedEvent;
 
     //Awake is always called before any Start functions
@@ -57,7 +60,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKey("r") || Input.GetKey("return"))
         {
-            Restart();
+            bool allow = allowPlayerInput != null && allowPlayerInput.Value;
+            if (allow) Restart();
         }
         else if (playOnPlayerDiedEvent)
         {

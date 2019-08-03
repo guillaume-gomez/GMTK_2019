@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using RoboRyanTron.Unite2017.Events;
+using RoboRyanTron.Unite2017.Variables;
+
 public class BrokenMirror : MonoBehaviour
 {
     public bool animate = false;
     public float duration = 0.6f;
 
-    public GameEvent gameEvent;
+    public BoolVariable allowPlayerInput;
 
-    public bool playEvent = false; 
-
+    [SerializeField]
+    bool m_animating = false;
     private float m_startScale;
 
     private void Start()
     {
         m_startScale = transform.GetChild(0).localScale.x;
-        ResetAnim();
+        if (!m_animating) ResetAnim();
     }
 
     // Start is called before the first frame update
@@ -31,15 +33,14 @@ public class BrokenMirror : MonoBehaviour
     }
 
 
-    [SerializeField]
-    bool m_animating = false;
+
 
     // Update is called once per frame
     public void Animate()
     {
         if (m_animating) return;
         m_animating = true;
-
+        allowPlayerInput?.SetValue(false);
         var sequence = DOTween.Sequence();
 
         var cam = Camera.main;
@@ -65,12 +66,16 @@ public class BrokenMirror : MonoBehaviour
             sequence.Insert(R(0.33f, 0.7f), transform.GetChild(i).DOLocalMove(pos, duration).SetEase(Ease.InBack, R(0.25f, 0.65f)));
         }
 
+        sequence.InsertCallback(duration / 2f, () => allowPlayerInput?.SetValue(true));
+
         sequence.OnComplete(ResetAnim);
     }
 
     private void ResetAnim()
     {
         m_animating = false;
+        allowPlayerInput?.SetValue(true);
+
         Vector3 localPos = Vector3.zero;
         for (int i = 0; i < transform.childCount; i++)
         {

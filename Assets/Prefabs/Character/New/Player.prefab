@@ -257,6 +257,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  allowPlayerInput: {fileID: 11400000, guid: ee50fa24659ad234fa15d24dc026c3c1, type: 2}
   limbPool: {fileID: 7191863357113929062}
 --- !u!1 &7191863357113929062
 GameObject:
