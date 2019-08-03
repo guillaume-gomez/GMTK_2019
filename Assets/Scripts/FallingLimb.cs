@@ -26,7 +26,7 @@ public class FallingLimb : MonoBehaviour
 
   public void LoseLeftArm()
   {
-    if(isActive && leftArmPrefab.active)
+    if(isActive && leftArmPrefab.activeSelf)
     {
       leftArmPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbLeftArmPrefab, leftArmPrefab.transform.position, Quaternion.identity) as GameObject;
@@ -38,7 +38,7 @@ public class FallingLimb : MonoBehaviour
 
   public void LoseRightArm()
   {
-    if(isActive && rightArmPrefab.active)
+    if(isActive && rightArmPrefab.activeSelf)
     {
       rightArmPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbRightArmPrefab, rightArmPrefab.transform.position, Quaternion.identity) as GameObject;
@@ -50,7 +50,7 @@ public class FallingLimb : MonoBehaviour
 
   public void LoseHead()
   {
-    if(isActive && headPrefab.active)
+    if(isActive && headPrefab.activeSelf)
     {
       headPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbHeadArmPrefab, headPrefab.transform.position, Quaternion.identity) as GameObject;
@@ -62,7 +62,7 @@ public class FallingLimb : MonoBehaviour
 
   public void LoseFeet()
   {
-    if(isActive && feetPrefab.active)
+    if(isActive && feetPrefab.activeSelf)
     {
       feetPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbFeetPrefab, feetPrefab.transform.position, Quaternion.identity) as GameObject;
