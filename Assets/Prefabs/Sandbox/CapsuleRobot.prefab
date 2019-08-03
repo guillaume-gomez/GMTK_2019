@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c375c61d3b2457419881cf1f5934c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 1
+  fadeTime: 6.58
   timeUntilStart: 2
   leftArm: {fileID: 7541578523408475581}
 --- !u!1001 &8799545276138171746
@@ -239,6 +239,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179130061450727566, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: detachForce
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8179130061450727566, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: detachRotationForce
+      value: 13.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efa298a711ead7148bc43832fa9c6c01, type: 3}

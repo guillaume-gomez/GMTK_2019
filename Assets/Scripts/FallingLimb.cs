@@ -17,10 +17,10 @@ public class FallingLimb : MonoBehaviour
   bool isActive = true;
 
   public void LoseleftArm() {
-    Debug.Log("called");
     if(isActive)
     {
       Limb limbScript = leftArm.GetComponent<Limb>();
+      limbScript.Fall();
       limbScript.StartCoroutine(limbScript.FadeTo(1.0f, fadeTime, timeUntilStart));
       ShouldToBeDisable();
       nbLimbs--;

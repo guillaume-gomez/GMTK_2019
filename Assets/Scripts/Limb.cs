@@ -7,6 +7,11 @@ using UnityEngine;
 
 public class Limb : MonoBehaviour
 {
+  [Range(0, 40)]
+  public float detachForce;
+  [Range(0, 40)]
+  public float detachRotationForce;
+
 
   public IEnumerator FadeTo(float initValue, float duration, float timeUntilStart) {
     yield return new WaitForSeconds(timeUntilStart);
@@ -23,5 +28,12 @@ public class Limb : MonoBehaviour
 
     }
     yield return null;
+  }
+
+  public void Fall() {
+    Rigidbody rb = GetComponent<Rigidbody>();
+    rb.AddForce(new Vector3(0, detachForce, 0.0f));
+    float randomTorque = Random.Range(-detachRotationForce, detachRotationForce);
+    rb.AddTorque(new Vector3(0.0f, 0.0f, randomTorque));
   }
 }
