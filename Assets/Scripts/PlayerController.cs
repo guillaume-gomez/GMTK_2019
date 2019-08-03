@@ -98,8 +98,14 @@ public class PlayerController : MonoBehaviour
         fLScript.LoseHead();
       }
 
+
       float horizontal = Input.GetAxis("Horizontal");
-      if(horizontal < 0)
+      // if we pressed left and right at the same time
+      if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)) {
+        horizontal = 0.0f;
+      }
+
+      if(horizontal < 0.0f)
       {
         wasLeft = true;
 
@@ -113,7 +119,7 @@ public class PlayerController : MonoBehaviour
         {
           fLScript.LoseLeftArm();
         }
-      } else if (horizontal > 0)
+      } else if (horizontal > 0.0f)
       {
         wasRight = true;
 
@@ -141,11 +147,11 @@ public class PlayerController : MonoBehaviour
         }
       }
 
-      if(horizontal < 0 && !lockLeft) {
+      if(horizontal < 0.0f && !lockLeft) {
         horizontaltimeElapsed += Time.deltaTime;
         float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
         result.x = - speed * acceleration;
-      } else if (horizontal > 0 && !lockRight) {
+      } else if (horizontal > 0.0f && !lockRight) {
         horizontaltimeElapsed += Time.deltaTime;
         float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
         result.x = speed * acceleration;
