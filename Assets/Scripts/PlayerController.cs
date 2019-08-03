@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         if (wasRight)
         {
           lockRight = true;
-          fLScript.LoseRightArm();
+          fLScript.LoseLeftArm();
         }
       } else if (horizontal > 0)
       {
@@ -98,19 +98,19 @@ public class PlayerController : MonoBehaviour
         if(wasLeft)
         {
           lockLeft = true;
-          fLScript.LoseLeftArm();
+          fLScript.LoseRightArm();
         }
       } else { //getAxisHorizontal = 0
         if(wasLeft)
         {
           lockLeft = true;
-          fLScript.LoseLeftArm();
+          fLScript.LoseRightArm();
         }
 
         if(wasRight)
         {
           lockRight = true;
-          fLScript.LoseRightArm();
+          fLScript.LoseLeftArm();
         }
       }
 

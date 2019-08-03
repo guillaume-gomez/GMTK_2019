@@ -128,7 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9fae6d4766f3d4faa5890b2be59841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 15
+  jumpSpeed: 1
+  speed: 1
+  accelerationTime: 0.05
+  decelerationTime: 0.05
   limbPool: {fileID: 7128784893615114263}
 --- !u!1 &7128784893615114263
 GameObject:
@@ -179,7 +182,13 @@ MonoBehaviour:
   rightArmPrefab: {fileID: 1729668555876763495}
   headPrefab: {fileID: 7929318682647951585}
   feetPrefab: {fileID: 18093188632775603}
-  deadLimbPrefab: {fileID: 986134467386074879, guid: e0c54db6e90f8ea4b9e6d0c6ebcf4c64,
+  deadLimbLeftArmPrefab: {fileID: 5827693185522535759, guid: fb38edb29d2785f4fb7455f1d8ea2967,
+    type: 3}
+  deadLimbRightArmPrefab: {fileID: 8513269006101714659, guid: 91345f5b92f706840b76163e46e306d0,
+    type: 3}
+  deadLimbFeetPrefab: {fileID: 2856150199071153004, guid: 2a5b837bb79b0e24d9e97dabfa7f9cd0,
+    type: 3}
+  deadLimbHeadArmPrefab: {fileID: 5552252500119646604, guid: f25f6ff2e1c351a418eea5106d3c76b5,
     type: 3}
 --- !u!1001 &771899048971341752
 PrefabInstance:
@@ -513,7 +522,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8988563837687820350}
   m_PrefabAsset: {fileID: 0}
-  jumpSpeed: 1
-  speed: 1
-  accelerationTime: 0.05
-  decelerationTIme: 0.05

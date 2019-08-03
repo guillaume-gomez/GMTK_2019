@@ -16,7 +16,11 @@ public class FallingLimb : MonoBehaviour
   public GameObject rightArmPrefab;
   public GameObject headPrefab;
   public GameObject feetPrefab;
-  public GameObject deadLimbPrefab;
+
+  public GameObject deadLimbLeftArmPrefab;
+  public GameObject deadLimbRightArmPrefab;
+  public GameObject deadLimbFeetPrefab;
+  public GameObject deadLimbHeadArmPrefab;
 
   bool isActive = true;
 
@@ -25,7 +29,7 @@ public class FallingLimb : MonoBehaviour
     if(isActive && leftArmPrefab.active)
     {
       leftArmPrefab.SetActive(false);
-      GameObject instance = Instantiate (deadLimbPrefab, leftArmPrefab.transform.position, Quaternion.identity) as GameObject;
+      GameObject instance = Instantiate (deadLimbLeftArmPrefab, leftArmPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
       ShouldToBeDisable();
       nbLimbs--;
@@ -37,7 +41,7 @@ public class FallingLimb : MonoBehaviour
     if(isActive && rightArmPrefab.active)
     {
       rightArmPrefab.SetActive(false);
-      GameObject instance = Instantiate (deadLimbPrefab, rightArmPrefab.transform.position, Quaternion.identity) as GameObject;
+      GameObject instance = Instantiate (deadLimbRightArmPrefab, rightArmPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
       ShouldToBeDisable();
       nbLimbs--;
@@ -49,7 +53,7 @@ public class FallingLimb : MonoBehaviour
     if(isActive && headPrefab.active)
     {
       headPrefab.SetActive(false);
-      GameObject instance = Instantiate (deadLimbPrefab, headPrefab.transform.position, Quaternion.identity) as GameObject;
+      GameObject instance = Instantiate (deadLimbHeadArmPrefab, headPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
       ShouldToBeDisable();
       nbLimbs--;
@@ -61,7 +65,7 @@ public class FallingLimb : MonoBehaviour
     if(isActive && feetPrefab.active)
     {
       feetPrefab.SetActive(false);
-      GameObject instance = Instantiate (deadLimbPrefab, feetPrefab.transform.position, Quaternion.identity) as GameObject;
+      GameObject instance = Instantiate (deadLimbFeetPrefab, feetPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
       ShouldToBeDisable();
       nbLimbs--;
