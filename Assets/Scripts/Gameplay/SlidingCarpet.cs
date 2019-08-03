@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class SlidingCarpet : MonoBehaviour
 {
+    private enum Direction
+    {
+        RIGHT,
+        LEFT
+    }
+
     [Header("Parameters")]
-    [SerializeField] private Vector3 slidingVector = Vector3.right;
+    [SerializeField] private Direction direction;
+    [SerializeField] [Range(0,1)] private float speed;
 
     private Collider m_currentCollider;
     private bool m_isTriggered = false;
+    private Vector3 m_slidingVector = Vector3.zero;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -36,6 +44,8 @@ public class SlidingCarpet : MonoBehaviour
     private void Update()
     {
         if (!m_isTriggered) return;
-        m_currentCollider.transform.position += slidingVector;
+
+        m_slidingVector.x = direction == Direction.LEFT ? speed * -1 : speed;
+        m_currentCollider.transform.position += m_slidingVector;
     }
 }
