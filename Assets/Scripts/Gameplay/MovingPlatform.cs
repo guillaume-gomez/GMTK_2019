@@ -10,6 +10,12 @@ public class MovingPlatform : MonoBehaviour
         ROTATION
     }
 
+    private enum RotationDirection
+    {
+        CLOCKWISE,
+        COUNTER_CLOCKWISE
+    }
+
     [Header("References")]
     [SerializeField] private Transform pointerReference;
 
@@ -20,6 +26,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] [Range(0,0.5f)] private float translationSpeed = 0.1f;
 
     [Header("Translation parameters")]
+    [SerializeField] private RotationDirection rotationDirection = RotationDirection.CLOCKWISE;
     [SerializeField] private float rotationSpeed = 2f;
     [SerializeField] private float rotationRadius = 2.5f;
 
@@ -74,7 +81,7 @@ public class MovingPlatform : MonoBehaviour
             m_posX = pointerReference.position.x + Mathf.Cos(m_angle) * rotationRadius;
             m_posY = pointerReference.position.y + Mathf.Sin(m_angle) * rotationRadius;
             transform.position = new Vector3(m_posX, m_posY, transform.position.z);
-            m_angle = m_angle + Time.deltaTime * rotationSpeed;
+            m_angle = m_angle + Time.deltaTime * rotationSpeed * (rotationDirection == RotationDirection.COUNTER_CLOCKWISE ? -1 : 1);
 
             if (m_angle >= 360f)
                 m_angle = 0f;
