@@ -15,7 +15,5 @@ public class PlaySoundTest : MonoBehaviour
             SoundManager.PlaySound(sound);
             play = false;
         }
-
-
     }
 }
