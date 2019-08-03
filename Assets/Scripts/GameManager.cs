@@ -48,7 +48,7 @@ using UnityEngine.UI;
         Application.Quit();
       }
 
-      if(Input.GetKey("l")) {
+      if(Input.GetKey("r") || Input.GetKey("return")) {
         Restart();
       }
     }
