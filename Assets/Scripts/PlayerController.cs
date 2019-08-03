@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 1.0f;
     public float speed = 1.0f;
     public float accelerationTime = 0.05f;
-    public float decelerationTIme = 0.05f;
+    public float decelerationTime = 0.05f;
 
     private bool lockLeft = false;
     private bool lockRight = false;
