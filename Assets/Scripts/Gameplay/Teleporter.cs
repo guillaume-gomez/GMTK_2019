@@ -15,23 +15,8 @@ public class Teleporter : MonoBehaviour
 
     private Collider m_currentCollider;
 
-    private void Awake()
-    {
-        if (!hasExitTeleporter)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("hasExitOtherTeleporter not set, can not set value");
-#endif
-            return;
-        }
-
-        hasExitTeleporter.Value = false;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(name + " on trigger enter");
-
         if (!hasExitOtherTeleporter)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
@@ -81,8 +66,6 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-
-        Debug.Log(name + " on trigger exit");
         if (!hasExitTeleporter)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
