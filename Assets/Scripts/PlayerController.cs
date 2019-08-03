@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrust = 15f;
+    public float jumpSpeed = 1.0f;
+    public float speed = 1.0f;
+    public float accelerationTime = 0.05f;
+    public float decelerationTime = 0.05f;
 
     private bool lockLeft = false;
     private bool lockRight = false;
@@ -34,7 +37,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = ComputedVector();
-        rb.AddForce(movement * thrust);
+        rb.AddForce(movement);
     }
 
     void resetState()
@@ -50,71 +53,67 @@ public class PlayerController : MonoBehaviour
 
     Vector3 ComputedVector()
     {
-        Vector3 result = new Vector3();
+      Vector3 result = new Vector3();
 
-        float vertical = Input.GetAxis("Vertical");
-        if (vertical > 0 && !lockJump)
-        {
-            wasJump = true;
-            result.y = thrust;
-        }
+      float vertical = Input.GetAxis("Vertical");
+      if(vertical > 0 && !lockJump) {
+        wasJump = true;
+        result.y = jumpSpeed;
+      }
 
-        if (vertical <= 0 && wasJump)
-        {
-            lockJump = true;
-        }
+      if (vertical <= 0 && wasJump)
+      {
+          lockJump = true;
+      }
 
-        if (Input.GetButtonUp("Action") && !lockAction)
-        {
-            // TODO
-        }
+      if (Input.GetButtonUp("Action") && !lockAction)
+      {
+          // TODO
+      }
 
-        if (Input.GetButtonDown("Action"))
-        {
-            lockAction = true;
-        }
+      if (Input.GetButtonDown("Action"))
+      {
+          lockAction = true;
+      }
 
-        float horizontal = Input.GetAxis("Horizontal");
-        if (horizontal < 0)
-        {
-            wasLeft = true;
+      float horizontal = Input.GetAxis("Horizontal");
+      if (horizontal < 0)
+      {
+          wasLeft = true;
 
-            if (wasRight)
-            {
-                lockRight = true;
-            }
-        }
-        else if (horizontal > 0)
-        {
-            wasRight = true;
+          if (wasRight)
+          {
+              lockRight = true;
+          }
+      }
+      else if (horizontal > 0)
+      {
+          wasRight = true;
 
-            if (wasLeft)
-            {
-                lockLeft = true;
-            }
-        }
-        else
-        { //getAxisHorizontal = 0
-            if (wasLeft)
-            {
-                lockLeft = true;
-            }
+          if (wasLeft)
+          {
+              lockLeft = true;
+          }
+      }
+      else
+      { //getAxisHorizontal = 0
+          if (wasLeft)
+          {
+              lockLeft = true;
+          }
 
-            if (wasRight)
-            {
-                lockRight = true;
-            }
-        }
+          if (wasRight)
+          {
+              lockRight = true;
+          }
+      }
 
-        if (horizontal < 0 && !lockLeft)
-        {
-            result.x = horizontal;
-        }
-        else if (horizontal > 0 && !lockRight)
-        {
-            result.x = horizontal;
-        }
-        // return the computed vector3
-        return result;
+      if(horizontal < 0 && !lockLeft) {
+        result.x = - speed;
+      } else if (horizontal > 0 && !lockRight) {
+        result.x = speed;
+      }
+      // return the computed vector3
+      return result;
     }
 }
