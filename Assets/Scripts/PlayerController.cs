@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrust = 15f;
+    public float jumpSpeed = 1.0f;
+    public float speed = 1.0f;
+    public float accelerationTime = 0.05f;
+    public float decelerationTime = 0.05f;
 
     private bool lockLeft = false;
     private bool lockRight = false;
@@ -15,11 +18,14 @@ public class PlayerController : MonoBehaviour
     private bool wasRight = false;
     private bool wasJump = false;
 
+    public GameObject limbPool;
     private Rigidbody rb;
+    private FallingLimb fLScript;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        fLScript = limbPool.GetComponent<FallingLimb>();
     }
 
     // I read that input management should be here. I will do everything in FixedUpdate for the moment
@@ -31,11 +37,15 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(GameManager.instance.godMode) {
+          resetState();
+        }
         Vector3 movement = ComputedVector();
-        rb.AddForce(movement * thrust);
+        rb.MovePosition(transform.position + (movement * Time.fixedDeltaTime));
     }
 
-    void resetState() {
+    void resetState()
+    {
       lockLeft = false;
       lockRight = false;
       lockJump = false;
@@ -45,54 +55,87 @@ public class PlayerController : MonoBehaviour
       wasJump = false;
     }
 
-    Vector3 ComputedVector() {
+    Vector3 ComputedVector()
+    {
       Vector3 result = new Vector3();
 
       float vertical = Input.GetAxis("Vertical");
-      if(vertical > 0 && !lockJump) {
+      if(vertical > 0 && !lockJump)
+      {
         wasJump = true;
-        result.y = thrust;
+        result.y = jumpSpeed;
+        // god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseFeet();
+        }
       }
 
-      if(vertical <= 0 && wasJump) {
+      if(vertical <= 0 && wasJump)
+      {
         lockJump = true;
+        fLScript.LoseFeet();
       }
 
-      if(Input.GetButtonUp("Action") && !lockAction) {
+      if(Input.GetButtonUp("Action") && !lockAction)
+      {
         // TODO
+
       }
 
-      if(Input.GetButtonDown("Action")) {
+      if(Input.GetButtonDown("Action"))
+      {
         lockAction = true;
+        fLScript.LoseHead();
       }
 
       float horizontal = Input.GetAxis("Horizontal");
-      if(horizontal < 0) {
+      if(horizontal < 0)
+      {
         wasLeft = true;
 
-        if (wasRight) {
+        if (wasRight)
+        {
           lockRight = true;
+          fLScript.LoseLeftArm();
         }
-      } else if (horizontal > 0) {
+        // god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseLeftArm();
+        }
+      } else if (horizontal > 0)
+      {
         wasRight = true;
 
-        if(wasLeft) {
+        if(wasLeft)
+        {
           lockLeft = true;
+          fLScript.LoseRightArm();
+        }
+        //god mode
+        if(GameManager.instance.godMode)
+        {
+          fLScript.LoseRightArm();
         }
       } else { //getAxisHorizontal = 0
-        if(wasLeft) {
+        if(wasLeft)
+        {
           lockLeft = true;
+          fLScript.LoseRightArm();
         }
 
-        if(wasRight) {
+        if(wasRight)
+        {
           lockRight = true;
+          fLScript.LoseLeftArm();
         }
       }
 
       if(horizontal < 0 && !lockLeft) {
-        result.x = horizontal;
+        result.x = - speed;
       } else if (horizontal > 0 && !lockRight) {
-        result.x = horizontal;
+        result.x = speed;
       }
       // return the computed vector3
       return result;
