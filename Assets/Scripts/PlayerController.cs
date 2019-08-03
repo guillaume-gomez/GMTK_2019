@@ -15,11 +15,14 @@ public class PlayerController : MonoBehaviour
     private bool wasRight = false;
     private bool wasJump = false;
 
+    public GameObject limbPool;
     private Rigidbody rb;
+    private FallingLimb fLScript;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        fLScript = limbPool.GetComponent<FallingLimb>();
     }
 
     // I read that input management should be here. I will do everything in FixedUpdate for the moment
@@ -35,7 +38,8 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * thrust);
     }
 
-    void resetState() {
+    void resetState()
+    {
       lockLeft = false;
       lockRight = false;
       lockJump = false;
@@ -45,53 +49,68 @@ public class PlayerController : MonoBehaviour
       wasJump = false;
     }
 
-    Vector3 ComputedVector() {
+    Vector3 ComputedVector()
+    {
       Vector3 result = new Vector3();
 
       float vertical = Input.GetAxis("Vertical");
-      if(vertical > 0 && !lockJump) {
+      if(vertical > 0 && !lockJump)
+      {
         wasJump = true;
         result.y = thrust;
       }
 
-      if(vertical <= 0 && wasJump) {
+      if(vertical <= 0 && wasJump)
+      {
         lockJump = true;
       }
 
-      if(Input.GetButtonUp("Action") && !lockAction) {
+      if(Input.GetButtonUp("Action") && !lockAction)
+      {
         // TODO
       }
 
-      if(Input.GetButtonDown("Action")) {
+      if(Input.GetButtonDown("Action"))
+      {
         lockAction = true;
       }
 
       float horizontal = Input.GetAxis("Horizontal");
-      if(horizontal < 0) {
+      if(horizontal < 0)
+      {
         wasLeft = true;
 
-        if (wasRight) {
+        if (wasRight)
+        {
           lockRight = true;
         }
-      } else if (horizontal > 0) {
+      } else if (horizontal > 0)
+      {
         wasRight = true;
 
-        if(wasLeft) {
+        if(wasLeft)
+        {
           lockLeft = true;
+          fLScript.LoseleftArm();
         }
       } else { //getAxisHorizontal = 0
-        if(wasLeft) {
+        if(wasLeft)
+        {
           lockLeft = true;
+          fLScript.LoseleftArm();
         }
 
-        if(wasRight) {
+        if(wasRight)
+        {
           lockRight = true;
         }
       }
 
-      if(horizontal < 0 && !lockLeft) {
+      if(horizontal < 0 && !lockLeft)
+      {
         result.x = horizontal;
-      } else if (horizontal > 0 && !lockRight) {
+      } else if (horizontal > 0 && !lockRight)
+      {
         result.x = horizontal;
       }
       // return the computed vector3
