@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(Rigidbody))]
 
-public class Limb : MonoBehaviour
+public class DeadLimb : MonoBehaviour
 {
   [Range(0, 40)]
   public float detachForce;
@@ -13,7 +13,7 @@ public class Limb : MonoBehaviour
   public float detachRotationForce;
 
 
-  public IEnumerator FadeTo(float initValue, float duration, float timeUntilStart) {
+  private IEnumerator FadeTo(float initValue, float duration, float timeUntilStart) {
     yield return new WaitForSeconds(timeUntilStart);
     MeshRenderer mr = GetComponent<MeshRenderer>();
     Color newColor = new Color(1, 1, 1, 0);
@@ -30,7 +30,8 @@ public class Limb : MonoBehaviour
     yield return null;
   }
 
-  public void Fall() {
+  public void Fall(float fadeTime, float timeUntilStart) {
+    StartCoroutine(FadeTo(1.0f, fadeTime, timeUntilStart));
     Rigidbody rb = GetComponent<Rigidbody>();
     rb.AddForce(new Vector3(0, detachForce, 0.0f));
     float randomTorque = Random.Range(-detachRotationForce, detachRotationForce);

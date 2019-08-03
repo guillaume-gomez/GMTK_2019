@@ -12,16 +12,17 @@ public class FallingLimb : MonoBehaviour
   private Color Black = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
   private float nbLimbs = 1;
-  public GameObject leftArm;
+  public GameObject leftArmPrefab;
+  public GameObject deadLimbPrefab;
 
   bool isActive = true;
 
   public void LoseleftArm() {
-    if(isActive)
+    if(isActive && leftArmPrefab.active)
     {
-      Limb limbScript = leftArm.GetComponent<Limb>();
-      limbScript.Fall();
-      limbScript.StartCoroutine(limbScript.FadeTo(1.0f, fadeTime, timeUntilStart));
+      leftArmPrefab.SetActive(false);
+      GameObject instance = Instantiate (deadLimbPrefab, leftArmPrefab.transform.position, Quaternion.identity) as GameObject;
+      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
       ShouldToBeDisable();
       nbLimbs--;
     }
