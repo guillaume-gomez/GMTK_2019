@@ -57,7 +57,7 @@ using UnityEngine.UI;
     {
     }
 
-    private void Restart()
+    public void Restart()
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
