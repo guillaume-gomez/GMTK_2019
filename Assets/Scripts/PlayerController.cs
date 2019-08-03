@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private bool wasRight = false;
     private bool wasJump = false;
 
+    public bool allowAllMovement = true;
+
     private Rigidbody rb;
 
     void Start()
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour
     // Don't hesitate to correct the code if a miss something :)
     void Update()
     {
-
+        if (allowAllMovement) resetState();
     }
 
     void FixedUpdate()
@@ -35,66 +37,84 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * thrust);
     }
 
-    void resetState() {
-      lockLeft = false;
-      lockRight = false;
-      lockJump = false;
-      lockAction = false;
-      wasLeft = false;
-      wasRight = false;
-      wasJump = false;
+    void resetState()
+    {
+        lockLeft = false;
+        lockRight = false;
+        lockJump = false;
+        lockAction = false;
+        wasLeft = false;
+        wasRight = false;
+        wasJump = false;
     }
 
-    Vector3 ComputedVector() {
-      Vector3 result = new Vector3();
+    Vector3 ComputedVector()
+    {
+        Vector3 result = new Vector3();
 
-      float vertical = Input.GetAxis("Vertical");
-      if(vertical > 0 && !lockJump) {
-        wasJump = true;
-        result.y = thrust;
-      }
-
-      if(vertical <= 0 && wasJump) {
-        lockJump = true;
-      }
-
-      if(Input.GetButtonUp("Action") && !lockAction) {
-        // TODO
-      }
-
-      if(Input.GetButtonDown("Action")) {
-        lockAction = true;
-      }
-
-      float horizontal = Input.GetAxis("Horizontal");
-      if(horizontal < 0) {
-        wasLeft = true;
-
-        if (wasRight) {
-          lockRight = true;
-        }
-      } else if (horizontal > 0) {
-        wasRight = true;
-
-        if(wasLeft) {
-          lockLeft = true;
-        }
-      } else { //getAxisHorizontal = 0
-        if(wasLeft) {
-          lockLeft = true;
+        float vertical = Input.GetAxis("Vertical");
+        if (vertical > 0 && !lockJump)
+        {
+            wasJump = true;
+            result.y = thrust;
         }
 
-        if(wasRight) {
-          lockRight = true;
+        if (vertical <= 0 && wasJump)
+        {
+            lockJump = true;
         }
-      }
 
-      if(horizontal < 0 && !lockLeft) {
-        result.x = horizontal;
-      } else if (horizontal > 0 && !lockRight) {
-        result.x = horizontal;
-      }
-      // return the computed vector3
-      return result;
+        if (Input.GetButtonUp("Action") && !lockAction)
+        {
+            // TODO
+        }
+
+        if (Input.GetButtonDown("Action"))
+        {
+            lockAction = true;
+        }
+
+        float horizontal = Input.GetAxis("Horizontal");
+        if (horizontal < 0)
+        {
+            wasLeft = true;
+
+            if (wasRight)
+            {
+                lockRight = true;
+            }
+        }
+        else if (horizontal > 0)
+        {
+            wasRight = true;
+
+            if (wasLeft)
+            {
+                lockLeft = true;
+            }
+        }
+        else
+        { //getAxisHorizontal = 0
+            if (wasLeft)
+            {
+                lockLeft = true;
+            }
+
+            if (wasRight)
+            {
+                lockRight = true;
+            }
+        }
+
+        if (horizontal < 0 && !lockLeft)
+        {
+            result.x = horizontal;
+        }
+        else if (horizontal > 0 && !lockRight)
+        {
+            result.x = horizontal;
+        }
+        // return the computed vector3
+        return result;
     }
 }
