@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrust = 15f;
     public float jumpSpeed = 1.0f;
     public float speed = 1.0f;
     public float accelerationTime = 0.05f;
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = ComputedVector();
-        rb.AddForce(movement * thrust);
+        rb.AddForce(movement);
     }
 
     void resetState() {
