@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = ComputedVector();
-        rb.AddForce(movement * thrust);
+        rb.MovePosition(transform.position + (movement * thrust * Time.fixedDeltaTime));
     }
 
     void resetState() {
