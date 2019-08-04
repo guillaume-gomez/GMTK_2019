@@ -1,4 +1,5 @@
 ﻿using RoboRyanTron.Unite2017.Events;
+using System.Collections;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
@@ -12,6 +13,7 @@ public class Laser : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private bool enableLaser;
+    [SerializeField] [Range(0, 10)] private float interval;
 
     private Ray m_ray;
     private RaycastHit m_hit;
@@ -19,14 +21,20 @@ public class Laser : MonoBehaviour
     private Vector3 m_colliderSize;
     private Vector3 m_midPoint;
 
+    private Coroutine m_checkLineStateCR;
+
     private void Start()
     {
         line.enabled = enableLaser;
+
+        if (m_checkLineStateCR != null) StopCoroutine(m_checkLineStateCR);
+        if (interval == 0) return;
+
+        m_checkLineStateCR = StartCoroutine(CheckLineStateAsync());
     }
 
     private void FixedUpdate()
     {
-        line.enabled = enableLaser;
         if (!line.enabled) return;
 
         m_ray = new Ray(transform.position, transform.right);
@@ -37,7 +45,6 @@ public class Laser : MonoBehaviour
         {
             line.SetPosition(1, m_hit.point);
 
-            Debug.Log(m_hit.collider.name);
             if (m_hit.collider.name == laserEnd.name) return;
             if (!onLaserCollision)
             {
@@ -51,5 +58,27 @@ public class Laser : MonoBehaviour
         }
         else
             line.SetPosition(1, m_ray.GetPoint(100));
+    }
+
+    private void OnValidate()
+    {
+        if (!Application.isPlaying) return;
+
+        line.enabled = enableLaser;
+
+        if (m_checkLineStateCR != null) StopCoroutine(m_checkLineStateCR);
+        if (interval == 0) return;
+
+        m_checkLineStateCR = StartCoroutine(CheckLineStateAsync());
+    }
+
+    private IEnumerator CheckLineStateAsync()
+    {
+        WaitForSeconds wfs = new WaitForSeconds(interval);
+        while (true)
+        {
+            yield return wfs;
+            line.enabled = !line.enabled;
+        }
     }
 }
