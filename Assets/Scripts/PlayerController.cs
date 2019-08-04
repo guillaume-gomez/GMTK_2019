@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using RoboRyanTron.Unite2017.Variables;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 1.0f;
     public AnimationCurve horizontalCurve;
     public AnimationCurve verticalCurve;
+    public BoolVariable allowPlayerInput; 
 
     private bool lockLeft = false;
     private bool lockRight = false;
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
       float vertical = Input.GetAxis("Vertical");
       if(vertical > 0 && !lockJump)
       {
+        if (!allowPlayerInput) goto result;
         wasJump = true;
         verticaltimeElapsed += Time.deltaTime;
         float acceleration = verticalCurve.Evaluate(verticaltimeElapsed);
@@ -86,16 +89,18 @@ public class PlayerController : MonoBehaviour
         verticaltimeElapsed = 0.0f;
       }
 
-      if(Input.GetButtonUp("Action") && !lockAction)
+      if (Input.GetButtonUp("Action") && !lockAction)
       {
         // TODO
+            if (!allowPlayerInput) goto result;
 
       }
 
       if(Input.GetButtonDown("Action"))
       {
-        lockAction = true;
-        fLScript.LoseHead();
+            if (!allowPlayerInput) goto result;
+            lockAction = true;
+            fLScript.LoseHead();
       }
 
 
@@ -103,9 +108,11 @@ public class PlayerController : MonoBehaviour
       // if we pressed left and right at the same time
       if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)) {
         horizontal = 0.0f;
-      }
+            if (!allowPlayerInput) goto result;
 
-      if(horizontal < 0.0f)
+        }
+
+        if (horizontal < 0.0f)
       {
         wasLeft = true;
 
@@ -158,6 +165,8 @@ public class PlayerController : MonoBehaviour
       } else {
         horizontaltimeElapsed = 0.0f;
       }
+
+        result: 
       // return the computed vector3
       return result;
     }
