@@ -7,6 +7,7 @@ public class Credits : MonoBehaviour {
 
   // Use this for initialization
   void Start () {
+    SoundManager.PlayMusic("music_1");
     Invoke("NextScene", 10f);
   }
 

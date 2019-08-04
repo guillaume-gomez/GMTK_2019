@@ -22,12 +22,15 @@ public class FallingLimb : MonoBehaviour
   public GameObject deadLimbFeetPrefab;
   public GameObject deadLimbHeadArmPrefab;
 
+  private string[] soundsStr = { "explosion_loose_member_01", "explosion_loose_member_02", "explosion_loose_member_03" };
+
   bool isActive = true;
 
   public void LoseLeftArm()
   {
     if(isActive && leftArmPrefab.activeSelf)
     {
+      GameManager.instance.PlaySound(soundsStr);
       leftArmPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbLeftArmPrefab, leftArmPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
@@ -40,6 +43,7 @@ public class FallingLimb : MonoBehaviour
   {
     if(isActive && rightArmPrefab.activeSelf)
     {
+      GameManager.instance.PlaySound(soundsStr);
       rightArmPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbRightArmPrefab, rightArmPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
@@ -52,6 +56,7 @@ public class FallingLimb : MonoBehaviour
   {
     if(isActive && headPrefab.activeSelf)
     {
+      GameManager.instance.PlaySound(soundsStr);
       headPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbHeadArmPrefab, headPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
@@ -64,6 +69,7 @@ public class FallingLimb : MonoBehaviour
   {
     if(isActive && feetPrefab.activeSelf)
     {
+      GameManager.instance.PlaySound(soundsStr);
       feetPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbFeetPrefab, feetPrefab.transform.position, Quaternion.identity) as GameObject;
       instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);

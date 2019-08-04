@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSpikeCollision: {fileID: 11400000, guid: 68494cee66a8885499c94875f6d412fe, type: 2}
+  onPlayerDied: {fileID: 0}
 --- !u!135 &2177337635247279769
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -119,4 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cdf7a74e381d24f979853496fd7710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundsStr: []
+  soundsStr:
+  - explosion_death_01
+  - explosion_death_02
+  - explosion_death_03
