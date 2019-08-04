@@ -59,7 +59,7 @@ public class PlayerAnimator : MonoBehaviour
 
     void OnAnimationDeathComplete()
     {
-        GameObject newPlayer = Instantiate(Resources.Load<GameObject>("Player"));
+        GameObject newPlayer = Instantiate(Resources.Load<GameObject>("CapsuleRobot"));
         newPlayer.transform.position = m_startPos;
         newPlayer.transform.SetParent(this.transform.parent);
         Destroy(this.gameObject);
