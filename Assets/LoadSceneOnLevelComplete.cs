@@ -7,12 +7,10 @@ public class LoadSceneOnLevelComplete : MonoBehaviour
     public string nextScene;
     public float delay = 0.5f;
 
-    public bool editorDontLoad = false;
 
 
     public void LoadNextScene()
     {
-        if (Application.isEditor && editorDontLoad) return;
         Invoke("LoadNextSceneInternal", delay);
     }
 
