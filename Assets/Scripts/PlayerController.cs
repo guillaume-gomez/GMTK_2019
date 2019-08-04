@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool lockAction = false;
 
+    private SMSound currentSoundPlayed;
+
 
     void Start()
     {
@@ -127,6 +129,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!m_lastRightPressed)
             {
+                currentSoundPlayed = GameManager.instance.PlaySound("propeller_loop");
                 propellerLeft.Play();
                 m_rightTimer = 0f;
             }
@@ -137,6 +140,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!lockRight && m_lastRightPressed)
             {
+                GameManager.instance.StopSound(currentSoundPlayed);
                 fLScript.LoseLeftArm();
                 m_rightTimer = 1f;
                 lockRight = true;
@@ -150,6 +154,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!m_lastLeftPressed)
             {
+                currentSoundPlayed = GameManager.instance.PlaySound("propeller_loop");
                 propellerRight.Play();
                 m_leftTimer = 0f;
             }
@@ -160,6 +165,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!lockLeft && m_lastLeftPressed)
             {
+                GameManager.instance.StopSound(currentSoundPlayed);
                 fLScript.LoseRightArm();
                 m_leftTimer = 1f;
                 lockLeft = true;
@@ -192,7 +198,7 @@ public class PlayerController : MonoBehaviour
             {
                 //rb.useGravity = false;
                 propellerFeet.Play();
-                GameManager.instance.PlaySound("jetpack");
+                currentSoundPlayed = GameManager.instance.PlaySound("propeller_loop");
                 m_upTimer = 0f;
             }
             m_upTimer += Time.deltaTime * 1f / verticalAccelerationTime;
@@ -207,6 +213,7 @@ public class PlayerController : MonoBehaviour
                 m_upTimer = 1f;
                 lockJump = true;
                 propellerFeet.Stop();
+                GameManager.instance.StopSound(currentSoundPlayed);
             }
             m_upTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             up = Mathf.Max(verticalDeccelerationCurve.Evaluate(m_upTimer), 0f);
@@ -220,7 +227,7 @@ public class PlayerController : MonoBehaviour
         //float vertical = Input.GetAxis("Vertical");
         //if (vertical > 0 && !lockJump)
         //{
-        //    GameManager.instance.PlaySound("jetpack");
+        //    GameManager.instance.PlaySound("propeller_loop");
         //    propellerFeet.Emit(1);
         //    wasJump = true;
         //    verticaltimeElapsed += Time.deltaTime;
@@ -255,7 +262,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         if (vertical > 0 && !lockJump)
         {
-            GameManager.instance.PlaySound("jetpack");
+            currentSoundPlayed = GameManager.instance.PlaySound("propeller_loop");
             propellerFeet.Emit(1);
             if (!allowPlayerInput) goto result;
             wasJump = true;
@@ -274,6 +281,7 @@ public class PlayerController : MonoBehaviour
             lockJump = true;
             verticaltimeElapsed = 0.0f;
             fLScript.LoseFeet();
+            GameManager.instance.StopSound(currentSoundPlayed);
         }
 
         if (GameManager.instance.godMode && vertical == 0)
