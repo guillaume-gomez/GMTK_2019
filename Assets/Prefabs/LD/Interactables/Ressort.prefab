@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2123866060472303405}
   - component: {fileID: 2104344026}
   - component: {fileID: 7903578919368512676}
+  - component: {fileID: 8073225758033023556}
   m_Layer: 0
   m_Name: Ressort
   m_TagString: Untagged
@@ -197,6 +198,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &8073225758033023556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097292700906246341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cdf7a74e381d24f979853496fd7710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsStr: []
 --- !u!1 &7568272153173839918
 GameObject:
   m_ObjectHideFlags: 0
