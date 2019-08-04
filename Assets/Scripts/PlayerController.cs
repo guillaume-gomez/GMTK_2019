@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.instance.godMode)
+        if (Application.isEditor && GameManager.instance.godMode)
         {
             resetState();
         }
