@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour {
+  public string nextScene = "Credits";
 
   // Use this for initialization
   void Start () {
@@ -18,6 +19,6 @@ public class MainMenu : MonoBehaviour {
   }
 
   void NextScene() {
-    SceneManager.LoadScene("Credits");
+    SceneManager.LoadScene(nextScene);
   }
 }
