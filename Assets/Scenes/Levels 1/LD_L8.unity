@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d168ce33732bc7a4aae7e5703b3c5dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: LD_Level_03
+  nextScene: Credits
   delay: 0.5
 --- !u!4 &1243790644
 Transform:
@@ -1837,7 +1837,7 @@ PrefabInstance:
     - target: {fileID: 1547487398750762887, guid: 08eb31842369b754f899afd789416346,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08eb31842369b754f899afd789416346, type: 3}
