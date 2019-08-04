@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.instance.godMode)
+        if (Application.isEditor && GameManager.instance.godMode)
         {
             resetState();
         }
@@ -151,7 +151,6 @@ public class PlayerController : MonoBehaviour
         {
             if (!m_lastRightPressed)
             {
-                currentSoundPlayed = GameManager.instance.PlaySound("propeller_loop");
                 propellerLeft.Play();
                 m_rightTimer = 0f;
             }
@@ -163,7 +162,6 @@ public class PlayerController : MonoBehaviour
             if (!lockRight && m_lastRightPressed)
             {
                 fLScript.LoseLeftArm(true);
-                GameManager.instance.StopSound(currentSoundPlayed);
                 m_rightTimer = 1f;
                 lockRight = true;
                 propellerLeft.Stop();
@@ -177,7 +175,6 @@ public class PlayerController : MonoBehaviour
         {
             if (!m_lastLeftPressed)
             {
-                currentSoundPlayed = GameManager.instance.PlaySound("propeller_loop");
                 propellerRight.Play();
                 m_leftTimer = 0f;
             }
@@ -189,7 +186,6 @@ public class PlayerController : MonoBehaviour
             if (!lockLeft && m_lastLeftPressed)
             {
                 fLScript.LoseRightArm(true);
-                GameManager.instance.StopSound(currentSoundPlayed);
                 m_leftTimer = 1f;
                 lockLeft = true;
                 propellerRight.Stop();
@@ -224,7 +220,6 @@ public class PlayerController : MonoBehaviour
             {
                 //rb.useGravity = false;
                 propellerFeet.Play();
-                currentSoundPlayed = GameManager.instance.PlaySound("propeller_loop");
                 m_upTimer = 0f;
             }
             m_upTimer += Time.deltaTime * 1f / verticalAccelerationTime;
@@ -240,7 +235,6 @@ public class PlayerController : MonoBehaviour
                 lockJump = true;
                 propellerFeet.Stop();
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
-                GameManager.instance.StopSound(currentSoundPlayed);
             }
             m_upTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             up = Mathf.Max(verticalDeccelerationCurve.Evaluate(m_upTimer), 0f);

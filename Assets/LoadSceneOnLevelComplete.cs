@@ -5,20 +5,23 @@ using UnityEngine;
 public class LoadSceneOnLevelComplete : MonoBehaviour
 {
     public string nextScene;
-    public float delay = 0.5f;
+    public float loadDelay = 1f;
 
-    public bool editorDontLoad = false;
+
 
 
     public void LoadNextScene()
     {
-        if (Application.isEditor && editorDontLoad) return;
-        Invoke("LoadNextSceneInternal", delay);
+        Invoke("LoadNextSceneInternal", loadDelay);
     }
 
     private void LoadNextSceneInternal()
     {
         ScenesManager.FadeAndLoadScene(nextScene);
+        GameManager.loadingScene = true;
+        GameManager.instance.SetNotLoadingSceneToFalseAfterTime(1.22f);
     }
+
+
 
 }

@@ -20,6 +20,19 @@ public class GameManager : MonoBehaviour
     public BoolVariable allowPlayerInput;
     public bool playOnPlayerDiedEvent;
 
+    public static bool loadingScene = false;
+
+
+    public void SetNotLoadingSceneToFalseAfterTime(float time)
+    {
+        Invoke("SetFalseLoadingScene", time);
+    }
+
+    private void SetFalseLoadingScene()
+    {
+        loadingScene = false;
+    }
+
 
     //Awake is always called before any Start functions
     void Awake()
@@ -85,6 +98,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        if (loadingScene) return;
         allowPlayerInput.SetValue(false);
         onPlayerDiedEvent?.Raise();
     }
@@ -97,20 +111,20 @@ public class GameManager : MonoBehaviour
 
     public SMSound PlaySound(string[] soundsStr)
     {
-      if(muteFx)
-      {
-        return null;
-      }
-      return SoundManager.PlaySound(PickSound(soundsStr));
+        if (muteFx)
+        {
+            return null;
+        }
+        return SoundManager.PlaySound(PickSound(soundsStr));
     }
 
     public SMSound PlaySound(string soundsStr)
     {
-      if(muteFx)
-      {
-        return null;
-      }
-      return SoundManager.PlaySound(soundsStr);
+        if (muteFx)
+        {
+            return null;
+        }
+        return SoundManager.PlaySound(soundsStr);
     }
 
     public void PlayMusic()
@@ -124,11 +138,11 @@ public class GameManager : MonoBehaviour
 
     public SMSound PlaySoundUI(string soundsStr)
     {
-        if(muteFx)
+        if (muteFx)
         {
             return null;
         }
-       return SoundManager.PlaySoundUI(soundsStr);
+        return SoundManager.PlaySoundUI(soundsStr);
     }
 
     public void StopSound(SMSound smsound)

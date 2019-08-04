@@ -357,6 +357,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   godMode: 1
+  muteMusic: 0
+  muteFx: 0
+  onPlayerDiedEvent: {fileID: 11400000, guid: 80755076444f0114ba6dc6a2cbaf2631, type: 2}
+  allowPlayerInput: {fileID: 11400000, guid: ee50fa24659ad234fa15d24dc026c3c1, type: 2}
+  playOnPlayerDiedEvent: 0
 --- !u!1 &4556036231334296714
 GameObject:
   m_ObjectHideFlags: 0
