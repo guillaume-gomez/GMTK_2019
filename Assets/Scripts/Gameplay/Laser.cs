@@ -1,26 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using RoboRyanTron.Unite2017.Events;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private LineRenderer line;
-    [SerializeField] private CapsuleCollider lineCollider;
+    [SerializeField] private GameObject laserEnd;
+
+    [Header("Game Events")]
+    [SerializeField] private GameEvent onLaserCollision;
 
     [Header("Parameters")]
     [SerializeField] private bool enableLaser;
 
     private Ray m_ray;
     private RaycastHit m_hit;
+    private float m_lineLength;
+    private Vector3 m_colliderSize;
+    private Vector3 m_midPoint;
 
     private void Start()
     {
         line.enabled = enableLaser;
-
-        //lineCollider.radius = line.startWidth / 2;
-        //lineCollider.center = Vector3.zero;
-        //lineCollider.direction = 2;
     }
 
     private void FixedUpdate()
@@ -35,20 +36,20 @@ public class Laser : MonoBehaviour
         if (Physics.Raycast(m_ray, out m_hit, 100))
         {
             line.SetPosition(1, m_hit.point);
-            //if (!m_hit.rigidbody) return;
 
-            //m_hit.rigidbody.AddForceAtPosition(transform.right * 5, m_hit.point);
+            Debug.Log(m_hit.collider.name);
+            if (m_hit.collider.name == laserEnd.name) return;
+            if (!onLaserCollision)
+            {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+                Debug.Log("onLaserCollision game event not set, can not be thrown");
+#endif
+                return;
+            }
+
+            onLaserCollision.Raise();
         }
         else
             line.SetPosition(1, m_ray.GetPoint(100));
-    }
-
-    private void Update()
-    {
-        if (m_hit.rigidbody == null) return;
-
-        //lineCollider.transform.position = this.transform.position + (m_hit.rigidbody.position - this.transform.position) / 2;
-        //lineCollider.transform.LookAt(this.transform.position);
-        //lineCollider.height = (m_hit.rigidbody.position - this.transform.position).magnitude;
     }
 }

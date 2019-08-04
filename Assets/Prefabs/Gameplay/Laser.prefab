@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4092124741685852570}
   - component: {fileID: 4092124741685852571}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: LaserEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4092124741685852568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.11, y: 0, z: 0}
+  m_LocalPosition: {x: 8.63, y: 0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4092124742571884829}
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4092124742571884831}
   - component: {fileID: 4092124742571884830}
   - component: {fileID: 4092124742571884828}
+  - component: {fileID: 570573963}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -282,4 +283,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 4092124742571884826}
-  enabled: 0
+  laserEnd: {fileID: 4092124741685852568}
+  onLaserCollision: {fileID: 11400000, guid: f6d809be2e7d66f40badd43f917b4b4a, type: 2}
+  enableLaser: 1
+--- !u!65 &570573963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092124742571884827}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
