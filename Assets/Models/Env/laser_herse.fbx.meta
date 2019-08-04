@@ -3,7 +3,22 @@ guid: 75cd413a0482e9546bdcb1f6273de9d6
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: laser_Light
+    second: {fileID: 2100000, guid: db04a8d5e9518584aafef89c48fa2ebd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: e92a5091cf242b54abc28356debdbc6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: redStone
+    second: {fileID: 2100000, guid: db04a8d5e9518584aafef89c48fa2ebd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,7 +59,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
