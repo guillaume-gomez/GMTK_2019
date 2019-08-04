@@ -16,10 +16,12 @@ public class BrokenMirror : MonoBehaviour
     bool m_animating = false;
     private float m_startScale;
 
+    public bool isMainMenu = false;
+
     private void Start()
     {
         m_startScale = transform.GetChild(0).localScale.x;
-        if (!m_animating) ResetAnim();
+        if (!isMainMenu && !m_animating) ResetAnim();
     }
 
     // Update is called once per frame
@@ -33,7 +35,13 @@ public class BrokenMirror : MonoBehaviour
         var cam = Camera.main;
 
         sequence.AppendInterval(startDelay);
-        sequence.Append(cam.DOShakeRotation(duration * 0.33f, 3f, 4, 10f));
+        if (isMainMenu)
+        {
+            sequence.Append(cam.DOShakeRotation(duration * 0.33f, 3f, 4, 10f));
+            sequence.Insert(0.1f, cam.DOOrthoSize(cam.orthographicSize * 0.33f, duration * 1.1f).SetEase(Ease.InCirc));
+        }
+        else
+            sequence.Append(cam.DOShakeRotation(duration * 0.33f, 15f, 6, 20f));
         GameManager.instance.PlaySound("game_over_glass_break");
 
         for (int i = 0; i < transform.childCount; i++)
