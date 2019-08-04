@@ -28,6 +28,7 @@ public class HorizontalVectorTest : MonoBehaviour
     public float tempVerticalStep = 0.5f;
 
     private Rigidbody rb;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

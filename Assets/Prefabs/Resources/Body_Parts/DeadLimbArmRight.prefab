@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3657765210269600709}
   - component: {fileID: -3165837090321797636}
   m_Layer: 9
-  m_Name: DeadLimbRightArm
+  m_Name: DeadLimbArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 986134467386074879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 797395273322819190}
   m_Father: {fileID: 0}
@@ -102,13 +102,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291594519979315703}
-  m_LocalRotation: {x: -0, y: -0.7072302, z: -0.7069834, w: 0}
-  m_LocalPosition: {x: -0.319, y: 0, z: 0}
+  m_LocalRotation: {x: 0.0000020968027, y: 0.70710784, z: 0.70710576, w: 0.0000020968089}
+  m_LocalPosition: {x: -0.33047354, y: -0.025791392, z: -0.4537382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3819373830069058574}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5706506047406792700
 MeshFilter:
   m_ObjectHideFlags: 0
