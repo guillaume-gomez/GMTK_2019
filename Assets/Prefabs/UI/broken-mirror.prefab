@@ -1014,8 +1014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animate: 0
+  startDelay: 0.45
   duration: 0.7
-  gameEvent: {fileID: 0}
   allowPlayerInput: {fileID: 11400000, guid: ee50fa24659ad234fa15d24dc026c3c1, type: 2}
   m_animating: 0
 --- !u!114 &7152194745083810665

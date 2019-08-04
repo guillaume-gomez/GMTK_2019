@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5278205561280852712}
   - component: {fileID: 6607203097800036287}
   - component: {fileID: 3868007298800840138}
+  - component: {fileID: 826960200870405304}
+  - component: {fileID: 9116840803434385122}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Untagged
@@ -93,6 +95,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &826960200870405304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2878796670752380758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21947edd6b57064299942596bb502a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSpikeCollision: {fileID: 11400000, guid: 68494cee66a8885499c94875f6d412fe, type: 2}
+  onPlayerDied: {fileID: 11400000, guid: 80755076444f0114ba6dc6a2cbaf2631, type: 2}
+--- !u!114 &9116840803434385122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2878796670752380758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cdf7a74e381d24f979853496fd7710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsStr: []
 --- !u!1 &6828562010043319848
 GameObject:
   m_ObjectHideFlags: 0
