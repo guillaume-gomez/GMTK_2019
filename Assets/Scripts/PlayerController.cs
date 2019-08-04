@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public AnimationCurve verticalCurve;
     public BoolVariable allowPlayerInput;
 
+    public ParticleSystem propellerLeft;
+    public ParticleSystem propellerRight;
+    public ParticleSystem propellerFeet;
+
     private bool lockLeft = false;
     private bool lockRight = false;
     private bool lockJump = false;
@@ -71,6 +75,7 @@ public class PlayerController : MonoBehaviour
       if(vertical > 0 && !lockJump)
       {
         GameManager.instance.PlaySound("jetpack");
+        propellerFeet.Emit(1);
         if (!allowPlayerInput) goto result;
         wasJump = true;
         verticaltimeElapsed += Time.deltaTime;
@@ -116,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (horizontal < 0.0f)
+      if (horizontal < 0.0f)
       {
         wasLeft = true;
 
@@ -155,14 +160,17 @@ public class PlayerController : MonoBehaviour
         {
           lockRight = true;
           fLScript.LoseLeftArm();
+          //propeller.Stop();
         }
       }
 
       if(horizontal < 0.0f && !lockLeft) {
+        propellerRight.Emit(1);
         horizontaltimeElapsed += Time.deltaTime;
         float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
         result.x = - speed * acceleration;
       } else if (horizontal > 0.0f && !lockRight) {
+        propellerLeft.Emit(1);
         horizontaltimeElapsed += Time.deltaTime;
         float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
         result.x = speed * acceleration;
