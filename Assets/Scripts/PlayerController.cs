@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public FallingLimb GetFallingLimb()
     {
-        return fLScript; 
+        return fLScript;
     }
 
     void resetState()
@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
       float vertical = Input.GetAxis("Vertical");
       if(vertical > 0 && !lockJump)
       {
+        GameManager.instance.PlaySound("jetpack");
         if (!allowPlayerInput) goto result;
         wasJump = true;
         verticaltimeElapsed += Time.deltaTime;

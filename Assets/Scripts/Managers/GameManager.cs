@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKey("r") || Input.GetKey("return"))
         {
+            //PlaySound("autodestruction");
+            //Invoke("Restart", 1.0f);
             Restart();
         }
         else if (playOnPlayerDiedEvent)
