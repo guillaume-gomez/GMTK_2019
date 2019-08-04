@@ -779,7 +779,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: LD_Level_06a
   delay: 0.5
-  editorDontLoad: 1
 --- !u!4 &860940244
 Transform:
   m_ObjectHideFlags: 0
@@ -1190,6 +1189,11 @@ PrefabInstance:
     - target: {fileID: 3162006095272514378, guid: 3f43688bd3dded84ba5e81f13bf7f946,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173798561798155515, guid: 3f43688bd3dded84ba5e81f13bf7f946,
+        type: 3}
+      propertyPath: godMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
