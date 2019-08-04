@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour {
 
   // Use this for initialization
   void Start () {
-    Invoke("NextScene", 10f);
+    //Invoke("NextScene", 10f);
   }
 
   // Update is called once per frame
