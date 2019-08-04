@@ -606,7 +606,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 750433715}
-        m_MethodName: LoadScene
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -632,6 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: LD_Test_01
   delay: 0.5
+  editorDontLoad: 1
 --- !u!4 &750433716
 Transform:
   m_ObjectHideFlags: 0

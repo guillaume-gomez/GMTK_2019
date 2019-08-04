@@ -16,58 +16,75 @@ public class FallingLimb : MonoBehaviour
   public GameObject rightArmPrefab;
   public GameObject headPrefab;
   public GameObject feetPrefab;
+  public GameObject capPrefab; 
 
   public GameObject deadLimbLeftArmPrefab;
   public GameObject deadLimbRightArmPrefab;
   public GameObject deadLimbFeetPrefab;
   public GameObject deadLimbHeadArmPrefab;
+  public GameObject deadCapPrefab;
 
   bool isActive = true;
+  public void LoseLeftArm() { LoseLeftArm(false);  }
 
-  public void LoseLeftArm()
+  public void LoseLeftArm(bool shakeCam)
   {
     if(isActive && leftArmPrefab.activeSelf)
     {
       leftArmPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbLeftArmPrefab, leftArmPrefab.transform.position, Quaternion.identity) as GameObject;
-      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
+      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart, shakeCam);
       ShouldToBeDisable();
       nbLimbs--;
     }
   }
 
-  public void LoseRightArm()
-  {
+    public void LoseRightArm()    { LoseRightArm(false); }
+
+  public void LoseRightArm(bool shakeCam)
+    {
     if(isActive && rightArmPrefab.activeSelf)
     {
       rightArmPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbRightArmPrefab, rightArmPrefab.transform.position, Quaternion.identity) as GameObject;
-      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
+      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart, shakeCam);
       ShouldToBeDisable();
       nbLimbs--;
     }
   }
 
-  public void LoseHead()
-  {
+    public void LoseHead()
+    {
+        LoseHead(false);
+    }
+
+  public void LoseHead(bool shakeCam)
+    {
     if(isActive && headPrefab.activeSelf)
     {
       headPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbHeadArmPrefab, headPrefab.transform.position, Quaternion.identity) as GameObject;
-      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
+      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart, shakeCam);
       ShouldToBeDisable();
       nbLimbs--;
     }
   }
 
-  public void LoseFeet()
-  {
+    public void LoseFeet()    {        LoseFeet(false);     }
+
+    public void LoseFeet(bool shakeCam)
+    {
     if(isActive && feetPrefab.activeSelf)
     {
       feetPrefab.SetActive(false);
       GameObject instance = Instantiate (deadLimbFeetPrefab, feetPrefab.transform.position, Quaternion.identity) as GameObject;
-      instance.GetComponent<DeadLimb>().Fall(fadeTime, timeUntilStart);
+      instance.GetComponent<DeadLimb>()?.Fall(fadeTime, timeUntilStart , shakeCam);
       ShouldToBeDisable();
+
+      capPrefab.SetActive(false);
+      instance = Instantiate(deadCapPrefab, capPrefab.transform.position, Quaternion.identity) as GameObject;
+      instance.GetComponent<DeadLimb>()?.Fall(fadeTime, timeUntilStart, false);
+
       nbLimbs--;
     }
   }

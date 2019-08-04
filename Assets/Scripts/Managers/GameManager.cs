@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     void InitGame()
     {
-      PlayMusic();
+        PlayMusic();
     }
 
     void Update()
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         }
 
-        if (Input.GetKey("r") || Input.GetKey("return"))
+        if (allowPlayerInput && Input.GetKey("r") || Input.GetKey("return"))
         {
             //PlaySound("autodestruction");
             //Invoke("Restart", 1.0f);
@@ -73,51 +73,53 @@ public class GameManager : MonoBehaviour
         }
         else if (playOnPlayerDiedEvent)
         {
-            onPlayerDiedEvent?.Raise();
+            Restart();
             playOnPlayerDiedEvent = false;
         }
     }
 
     public void GameOver()
     {
+        Restart();
     }
 
     public void Restart()
     {
+        allowPlayerInput.SetValue(false);
         onPlayerDiedEvent?.Raise();
     }
 
     private string PickSound(string[] soundsStr)
     {
-      int index = Random.Range(0, soundsStr.Length);
-      return soundsStr[index];
+        int index = Random.Range(0, soundsStr.Length);
+        return soundsStr[index];
     }
 
     public void PlaySound(string[] soundsStr)
     {
-      if(muteFx)
-      {
-        return;
-      }
-      SoundManager.PlaySound(PickSound(soundsStr));
+        if (muteFx)
+        {
+            return;
+        }
+        SoundManager.PlaySound(PickSound(soundsStr));
     }
 
     public void PlaySound(string soundsStr)
     {
-      if(muteFx)
-      {
-        return;
-      }
-      SoundManager.PlaySound(soundsStr);
+        if (muteFx)
+        {
+            return;
+        }
+        SoundManager.PlaySound(soundsStr);
     }
 
     public void PlayMusic()
     {
-      if(muteMusic)
-      {
-        return;
-      }
-      SoundManager.PlayMusic(musicStr);
+        if (muteMusic)
+        {
+            return;
+        }
+        SoundManager.PlayMusic(musicStr);
     }
 
 
