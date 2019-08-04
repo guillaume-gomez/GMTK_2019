@@ -4,90 +4,31 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    [Header("Game Events")]
-    [SerializeField] private GameEvent onTeleporterCollision;
+    [Header("References")]
+    [SerializeField] private Teleporter otherTeleporter;
 
-    [Header("Modular Variables")]
-    [SerializeField] private VectorVariable teleporterPosition;
-    [SerializeField] private VectorVariable otherTeleporterPosition;
-    [SerializeField] private BoolVariable hasExitTeleporter;
-    [SerializeField] private BoolVariable hasExitOtherTeleporter;
+    public bool HasExitTeleporter { get; set; }
 
     private Collider m_currentCollider;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!hasExitOtherTeleporter)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("hasExitOtherTeleporter not set, can not check teleporter");
-#endif
-            return;
-        }
-
-        if (hasExitOtherTeleporter.Value) return;
-        //if (!hasExitTeleporter.Value) return;
+        if (otherTeleporter.HasExitTeleporter) return;
 
         if (other == null) return;
         if (other.attachedRigidbody == null) return;
 
-        if (!hasExitTeleporter)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("hasExitOtherTeleporter not set, can not check teleporter");
-#endif
-            return;
-        }
-
-        if (!onTeleporterCollision)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("onTeleporterCollision game event not set, can be thrown");
-#endif
-            return;
-        }
-
-        if (!otherTeleporterPosition)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("otherTeleporterPosition modular variable not set, can not teleport");
-#endif
-            return;
-        }
-
         m_currentCollider = other;
-        onTeleporterCollision.Raise();
 
-        hasExitTeleporter.Value = false;
-        hasExitOtherTeleporter.Value = true;
+        HasExitTeleporter = false;
+        otherTeleporter.HasExitTeleporter = true;
 
-        m_currentCollider.transform.position = otherTeleporterPosition.Value;
+        m_currentCollider.transform.position = otherTeleporter.transform.position;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!hasExitTeleporter)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("hasExitOtherTeleporter not set, can not check teleporter");
-#endif
-            return;
-        }
-
-        hasExitTeleporter.Value = true;
-        hasExitOtherTeleporter.Value = false;
-    }
-
-    public void OnOtherTeleporterCollision()
-    {
-        if (!teleporterPosition)
-        {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-            Debug.LogError("teleporterPosition modular variable not set, can not set teleporter position");
-#endif
-            return;
-        }
-
-        teleporterPosition.Value = transform.position;
+        HasExitTeleporter = true;
+        otherTeleporter.HasExitTeleporter = false;
     }
 }
