@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels 1/LD_07.unity
     guid: 30bd6e21831f7af46b84d57769298ae9
   - enabled: 1
-    path: Assets/Scenes/Levels 1/LD_L8.unity
+    path: Assets/Scenes/Levels 1/LD_08.unity
     guid: 145c49471106c4f4797d63a6fe64bfca
   - enabled: 1
     path: Assets/Scenes/Menu/Credits.unity

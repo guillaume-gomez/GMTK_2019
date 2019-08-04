@@ -7,7 +7,6 @@ using RoboRyanTron.Unite2017.Variables;
 
 public class BrokenMirror : MonoBehaviour
 {
-    public bool animate = false;
     public float startDelay = 0.5f;
     public float duration = 0.6f;
 
@@ -22,19 +21,6 @@ public class BrokenMirror : MonoBehaviour
         m_startScale = transform.GetChild(0).localScale.x;
         if (!m_animating) ResetAnim();
     }
-
-    // Start is called before the first frame update
-    void Update()
-    {
-        if (animate)
-        {
-            Animate();
-            animate = false;
-        }
-    }
-
-
-
 
     // Update is called once per frame
     public void Animate()
