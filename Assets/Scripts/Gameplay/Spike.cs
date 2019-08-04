@@ -12,8 +12,9 @@ public class Spike : MonoBehaviour
         if (collision == null) return;
         if (collision.collider == null) return;
         if (collision.collider.attachedRigidbody == null) return;
+        if (collision.collider.tag != "Player") return;
 
-        onPlayerDied?.Raise(); 
+        onPlayerDied?.Raise();
 
         if (!onSpikeCollision) return;
 

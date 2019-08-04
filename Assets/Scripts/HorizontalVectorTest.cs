@@ -28,6 +28,7 @@ public class HorizontalVectorTest : MonoBehaviour
     public float tempVerticalStep = 0.5f;
 
     private Rigidbody rb;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -40,7 +41,7 @@ public class HorizontalVectorTest : MonoBehaviour
 
         rb.MovePosition(transform.position + vector);
 
-        Debug.Log("Up: " + Input.GetAxis("Vertical"));
+        //Debug.Log("Up: " + Input.GetAxis("Vertical"));
         if (Input.GetAxis("Vertical") > 0f)
         {
             rb.AddForce(Vector3.up * tempVerticalStep, ForceMode.Impulse);

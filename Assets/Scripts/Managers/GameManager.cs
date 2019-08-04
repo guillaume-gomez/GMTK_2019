@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     void InitGame()
     {
-      PlayMusic();
+        PlayMusic();
     }
 
     void Update()
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         }
 
-        if (Input.GetKey("r") || Input.GetKey("return"))
+        if (allowPlayerInput && Input.GetKey("r") || Input.GetKey("return"))
         {
             //PlaySound("autodestruction");
             //Invoke("Restart", 1.0f);
@@ -73,60 +73,67 @@ public class GameManager : MonoBehaviour
         }
         else if (playOnPlayerDiedEvent)
         {
-            onPlayerDiedEvent?.Raise();
+            Restart();
             playOnPlayerDiedEvent = false;
         }
     }
 
     public void GameOver()
     {
+        Restart();
     }
 
     public void Restart()
     {
-        StartCoroutine(RestartCR());
-    }
-
-    private IEnumerator RestartCR()
-    {
-        SoundManager.StopAllPausableSounds();
-        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-        yield return null; //we jump two frames to make sure awake and start functions in new scene have been called 
-        yield return null; //actually donno if we need this, just for testing
+        allowPlayerInput.SetValue(false);
         onPlayerDiedEvent?.Raise();
     }
 
     private string PickSound(string[] soundsStr)
     {
-      int index = Random.Range(0, soundsStr.Length);
-      return soundsStr[index];
+        int index = Random.Range(0, soundsStr.Length);
+        return soundsStr[index];
     }
 
-    public void PlaySound(string[] soundsStr)
+    public SMSound PlaySound(string[] soundsStr)
     {
       if(muteFx)
       {
-        return;
+        return null;
       }
-      SoundManager.PlaySound(PickSound(soundsStr));
+      return SoundManager.PlaySound(PickSound(soundsStr));
     }
 
-    public void PlaySound(string soundsStr)
+    public SMSound PlaySound(string soundsStr)
     {
       if(muteFx)
       {
-        return;
+        return null;
       }
-      SoundManager.PlaySound(soundsStr);
+      return SoundManager.PlaySound(soundsStr);
     }
 
     public void PlayMusic()
     {
-      if(muteMusic)
-      {
-        return;
-      }
-      SoundManager.PlayMusic(musicStr);
+        if (muteMusic)
+        {
+            return;
+        }
+        SoundManager.PlayMusic(musicStr);
+    }
+
+    public SMSound PlaySoundUI(string soundsStr)
+    {
+        if(muteFx)
+        {
+            return null;
+        }
+       return SoundManager.PlaySoundUI(soundsStr);
+    }
+
+    public void StopSound(SMSound smsound)
+    {
+        SoundManager.StopSound(smsound);
     }
 
 

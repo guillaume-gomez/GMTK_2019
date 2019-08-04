@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9045629904822458073}
   - component: {fileID: 9045629904822458074}
   - component: {fileID: 9045629904822458070}
-  - component: {fileID: -8226375884074547805}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -110,19 +109,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-8226375884074547805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9045629904822458075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cdf7a74e381d24f979853496fd7710, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundsStr:
-  - breakable_block_1
-  - breakable_block_2
-  - breakable_block_3

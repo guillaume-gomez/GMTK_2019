@@ -155,6 +155,11 @@ public class SoundManager : MonoBehaviour
         return Instance._settings.GetSoundMuted();
     }
 
+    public static void StopSound(SMSound smSound)
+    {
+        Instance.Stop(smSound);
+    }
+
     // Check for valid if use SoundManager in OnDestroy()
     public static bool IsValid()
     {
@@ -681,6 +686,10 @@ public class SoundManager : MonoBehaviour
 
     bool IsSoundFinished(SMSound sound)
     {
+        if(sound == null) {
+            return true;
+        }
+
         if (sound.IsLoading)
             return false;
 
