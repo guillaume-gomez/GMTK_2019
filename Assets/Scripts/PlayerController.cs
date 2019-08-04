@@ -163,6 +163,7 @@ public class PlayerController : MonoBehaviour
                 m_rightTimer = 1f;
                 lockRight = true;
                 propellerLeft.Stop();
+                PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
             m_rightTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             right = Mathf.Min(horizontalDeccelerationCurve.Evaluate(m_rightTimer), 1f);
@@ -186,6 +187,8 @@ public class PlayerController : MonoBehaviour
                 m_leftTimer = 1f;
                 lockLeft = true;
                 propellerRight.Stop();
+                PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
+
             }
             m_leftTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             left = Mathf.Max(horizontalDeccelerationCurve.Evaluate(m_leftTimer), 0f);
@@ -200,6 +203,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
 
 
     float computeVertical()
@@ -229,6 +233,7 @@ public class PlayerController : MonoBehaviour
                 m_upTimer = 1f;
                 lockJump = true;
                 propellerFeet.Stop();
+                PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
             m_upTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             up = Mathf.Max(verticalDeccelerationCurve.Evaluate(m_upTimer), 0f);
@@ -395,4 +400,17 @@ public class PlayerController : MonoBehaviour
     //    // return the computed vector3
     //    return result;
     //}
+
+
+
+    void PlayDestroyedComponentParticles(Vector3 pos)
+    {
+        pos.z = -2f;
+        ParticleSystem particles = Instantiate(Resources.Load<ParticleSystem>("Particles/particles_destruction"));
+        if (particles)
+        {
+            particles.transform.position = pos;
+            Destroy(particles.gameObject, 2f);
+        }
+    }
 }

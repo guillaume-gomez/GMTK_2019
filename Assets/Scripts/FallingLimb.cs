@@ -25,7 +25,9 @@ public class FallingLimb : MonoBehaviour
   public GameObject deadCapPrefab;
 
   bool isActive = true;
-  public void LoseLeftArm() { LoseLeftArm(false);  }
+    public Transform headCenter;
+
+    public void LoseLeftArm() { LoseLeftArm(false);  }
 
   public void LoseLeftArm(bool shakeCam)
   {
