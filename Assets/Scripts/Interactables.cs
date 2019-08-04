@@ -8,9 +8,12 @@ public class Interactables : MonoBehaviour
 
   void OnCollisionEnter (Collision col)
   {
-      if(col.gameObject.tag == "Player")
-      {
-          GameManager.instance.PlaySound(soundsStr);
+    if(col.gameObject.tag == "Player")
+    {
+      if(soundsStr.Length == 0) {
+        return;
       }
+      GameManager.instance.PlaySound(soundsStr);
+    }
   }
 }
