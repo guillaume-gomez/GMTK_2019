@@ -7,21 +7,24 @@ public class Teleporter : MonoBehaviour
     [Header("References")]
     [SerializeField] private Teleporter otherTeleporter;
 
-    public bool HasExitTeleporter { get; set; }
+    public bool HasEnterTeleporter { get; set; } = false;
+    public bool HasExitTeleporter { get; set; } = true;
 
-    private Collider m_currentCollider;
+    private Transform m_currentCollider;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (otherTeleporter.HasExitTeleporter) return;
-
         if (other == null) return;
         if (other.attachedRigidbody == null) return;
 
-        m_currentCollider = other;
+        if (!HasExitTeleporter) return;
+        if (otherTeleporter.HasEnterTeleporter) return;
+        if (m_currentCollider != null) return;
+
+        m_currentCollider = other.attachedRigidbody.transform;
 
         HasExitTeleporter = false;
-        otherTeleporter.HasExitTeleporter = true;
+        HasEnterTeleporter = true;
 
         m_currentCollider.transform.position = otherTeleporter.transform.position;
     }
@@ -29,6 +32,13 @@ public class Teleporter : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         HasExitTeleporter = true;
-        otherTeleporter.HasExitTeleporter = false;
+        if (otherTeleporter.HasEnterTeleporter)
+        {
+            HasEnterTeleporter = false;
+            otherTeleporter.HasEnterTeleporter = false;
+        }
+
+        if (m_currentCollider == null) return;
+        m_currentCollider = null;
     }
 }
