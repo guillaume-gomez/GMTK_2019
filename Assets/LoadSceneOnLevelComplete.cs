@@ -5,15 +5,15 @@ using UnityEngine;
 public class LoadSceneOnLevelComplete : MonoBehaviour
 {
     public string nextScene;
-    public float delay = 0f;
+    public float delay = 0.5f;
 
 
-    public void LoadScene()
+    public void LoadNextScene()
     {
-        Invoke("LoadSceneInternal", delay);
+        Invoke("LoadNextSceneInternal", delay);
     }
 
-    private void LoadSceneInternal()
+    private void LoadNextSceneInternal()
     {
         ScenesManager.FadeAndLoadScene(nextScene);
     }
