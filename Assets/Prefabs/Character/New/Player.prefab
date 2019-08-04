@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 622372227526381476}
   m_Layer: 0
   m_Name: main_Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 8972941060950070472}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,7 +288,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  allowPlayerInput: {fileID: 11400000, guid: ee50fa24659ad234fa15d24dc026c3c1, type: 2}
   limbPool: {fileID: 7191863357113929062}
 --- !u!1 &7191863357113929062
 GameObject:
@@ -358,6 +357,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LimbLeftArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986268947531905359, guid: 558aba5ebd9e1a743806d0c40d1c0450,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5462846926180717912, guid: 558aba5ebd9e1a743806d0c40d1c0450,
         type: 3}
@@ -440,6 +444,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Head
       objectReference: {fileID: 0}
+    - target: {fileID: 5864858791859923180, guid: f1637ef693713e44884ea6ea96a7ebb6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8818031847109690619, guid: f1637ef693713e44884ea6ea96a7ebb6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -521,6 +530,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LimbRightArm
       objectReference: {fileID: 0}
+    - target: {fileID: 5964540452985891819, guid: 8b107519d50fe1f48aa0eaabf5f9b568,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8790346085635115004, guid: 8b107519d50fe1f48aa0eaabf5f9b568,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -597,11 +611,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6508185283093964756}
     m_Modifications:
-    - target: {fileID: 6293447007838295228, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
-        type: 3}
-      propertyPath: m_Name
-      value: Feet
-      objectReference: {fileID: 0}
     - target: {fileID: 8965831729241618603, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -656,6 +665,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293447007838295228, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
+        type: 3}
+      propertyPath: m_Name
+      value: Feet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293447007838295228, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1473abe56ec4ab4396a6fea8f1b2e23, type: 3}

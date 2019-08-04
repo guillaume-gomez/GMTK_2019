@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 1.0f;
     public AnimationCurve horizontalCurve;
     public AnimationCurve verticalCurve;
-    public BoolVariable allowPlayerInput; 
+    public BoolVariable allowPlayerInput;
 
     private bool lockLeft = false;
     private bool lockRight = false;
@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     private FallingLimb fLScript;
     private float horizontaltimeElapsed;
     private float verticaltimeElapsed;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -91,9 +90,7 @@ public class PlayerController : MonoBehaviour
 
       if (Input.GetButtonUp("Action") && !lockAction)
       {
-        // TODO
-            if (!allowPlayerInput) goto result;
-
+        if (!allowPlayerInput) goto result;
       }
 
       if(Input.GetButtonDown("Action"))
@@ -107,8 +104,8 @@ public class PlayerController : MonoBehaviour
       float horizontal = Input.GetAxis("Horizontal");
       // if we pressed left and right at the same time
       if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow)) {
-        horizontal = 0.0f;
-            if (!allowPlayerInput) goto result;
+          horizontal = 0.0f;
+          if (!allowPlayerInput) goto result;
 
         }
 
@@ -166,7 +163,7 @@ public class PlayerController : MonoBehaviour
         horizontaltimeElapsed = 0.0f;
       }
 
-        result: 
+        result:
       // return the computed vector3
       return result;
     }
