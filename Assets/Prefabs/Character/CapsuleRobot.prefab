@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9054033860668887481}
   m_Layer: 8
   m_Name: CapsuleRobot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,6 +298,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -383,6 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
@@ -470,6 +480,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -555,6 +570,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348637302801598687, guid: efa298a711ead7148bc43832fa9c6c01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4146841890785436872, guid: efa298a711ead7148bc43832fa9c6c01,
         type: 3}

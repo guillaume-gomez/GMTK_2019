@@ -8,7 +8,12 @@ using UnityEngine.UI;
   {
     public static GameManager instance = null;
     private int level = 0;
+    private string musicStr = "music_2";
+
     public bool godMode = true;
+    public bool muteMusic = false;
+    public bool muteFx = false;
+
 
     //Awake is always called before any Start functions
     void Awake()
@@ -39,6 +44,7 @@ using UnityEngine.UI;
 
     void InitGame()
     {
+      PlayMusic();
     }
 
     void Update()
@@ -61,6 +67,40 @@ using UnityEngine.UI;
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
+
+    private string PickSound(string[] soundsStr)
+    {
+      int index = Random.Range(0, soundsStr.Length);
+      return soundsStr[index];
+    }
+
+    public void PlaySound(string[] soundsStr)
+    {
+      if(muteFx)
+      {
+        return;
+      }
+      SoundManager.PlaySound(PickSound(soundsStr));
+    }
+
+    public void PlaySound(string soundsStr)
+    {
+      if(muteFx)
+      {
+        return;
+      }
+      SoundManager.PlaySound(soundsStr);
+    }
+
+    public void PlayMusic()
+    {
+      if(muteMusic)
+      {
+        return;
+      }
+      SoundManager.PlayMusic(musicStr);
+    }
+
 
 }
 

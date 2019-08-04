@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private FallingLimb fLScript;
     private float horizontaltimeElapsed;
     private float verticaltimeElapsed;
+    private string[] laserSounds = { "laser_1", "laser_2", "laser_3" };
 
     void Start()
     {
@@ -88,9 +89,7 @@ public class PlayerController : MonoBehaviour
 
       if(Input.GetButtonUp("Action") && !lockAction)
       {
-        // TODO
-        //SoundManager.PlaySound("");
-
+        GameManager.instance.PlaySound(laserSounds);
       }
 
       if(Input.GetButtonDown("Action"))
