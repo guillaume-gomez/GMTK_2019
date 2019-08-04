@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 7059963035781929339}
   - component: {fileID: 1265626435606149964}
   - component: {fileID: 2123866060472303405}
+  - component: {fileID: 2104344026}
+  - component: {fileID: 7903578919368512676}
   m_Layer: 0
   m_Name: Ressort
   m_TagString: Untagged
@@ -153,6 +155,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heightForce: 5
+--- !u!114 &2104344026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097292700906246341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967e9985ed49cd443a1e8075ac83ec52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testReset: 0
+--- !u!114 &7903578919368512676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097292700906246341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aba7cfbd70a5d34d98779767ce7e091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 80755076444f0114ba6dc6a2cbaf2631, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2104344026}
+        m_MethodName: ResetValueAndAnimate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &7568272153173839918
 GameObject:
   m_ObjectHideFlags: 0

@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSpikeCollision: {fileID: 11400000, guid: 68494cee66a8885499c94875f6d412fe, type: 2}
+  onPlayerDied: {fileID: 11400000, guid: 80755076444f0114ba6dc6a2cbaf2631, type: 2}
 --- !u!1 &6828562010043319848
 GameObject:
   m_ObjectHideFlags: 0

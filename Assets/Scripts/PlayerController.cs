@@ -48,6 +48,11 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(transform.position + (movement * Time.fixedDeltaTime));
     }
 
+    public FallingLimb GetFallingLimb()
+    {
+        return fLScript; 
+    }
+
     void resetState()
     {
       lockLeft = false;

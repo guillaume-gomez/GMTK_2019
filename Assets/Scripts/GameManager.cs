@@ -76,15 +76,15 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        StartCoroutine(RestartCR());
+        onPlayerDiedEvent?.Raise();
+        //StartCoroutine(RestartCR());
     }
 
     private IEnumerator RestartCR()
     {
-        yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        //yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         yield return null; //we jump two frames to make sure awake and start functions in new scene have been called 
         yield return null; //actually donno if we need this, just for testing
-        onPlayerDiedEvent?.Raise();
     }
 
 }

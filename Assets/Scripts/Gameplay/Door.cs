@@ -8,6 +8,9 @@ public class Door : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        if (collision.transform.tag != "Player") return;
+
         if (!onDoorCollision)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
@@ -22,6 +25,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag != "Player") return;
+
         if (!onDoorCollision)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
