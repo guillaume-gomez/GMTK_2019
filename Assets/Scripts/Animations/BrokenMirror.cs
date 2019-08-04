@@ -48,10 +48,11 @@ public class BrokenMirror : MonoBehaviour
 
         sequence.AppendInterval(startDelay);
         sequence.Append(cam.DOShakeRotation(duration * 0.33f, 3f, 4, 10f));
+        GameManager.instance.PlaySound("game_over_glass_break");
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            int index = i; 
+            int index = i;
             sequence.InsertCallback(startDelay, () => transform.GetChild(index).gameObject.SetActive(true));
 
             //sequence.Insert(R(0f, 0.05f), transform.GetChild(i).DOLocalRotate(new Vector3(R(0f, 5f), R(0f, 5f), R(-10f, 10f)), 0.2f).SetEase(Ease.InCirc));
