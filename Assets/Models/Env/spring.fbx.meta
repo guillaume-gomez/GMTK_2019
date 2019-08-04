@@ -3,7 +3,17 @@ guid: c69639902161dab47af38c1f80ec19a8
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_spring
+    second: {fileID: 2100000, guid: e92a5091cf242b54abc28356debdbc6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spring_cap
+    second: {fileID: 2100000, guid: 09a75a020d9293e45b44767b7aa2b57a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
