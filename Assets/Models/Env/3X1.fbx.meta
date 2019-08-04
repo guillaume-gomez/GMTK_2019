@@ -3,7 +3,27 @@ guid: 5f21c13c2bfd10e4bbf7e2e5bef648f2
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3x1_metal
+    second: {fileID: 2100000, guid: ad10d6b79dc3e1740a397a5d55cbb8c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3x1_plateform
+    second: {fileID: 2100000, guid: 5c82f322b06f1ac4c9b69fd7ee3c3c16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3x1_side
+    second: {fileID: 2100000, guid: ad10d6b79dc3e1740a397a5d55cbb8c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rambarde_metal
+    second: {fileID: 2100000, guid: 26d252f9b24fb2c47904d7056b42e50a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

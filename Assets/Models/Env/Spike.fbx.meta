@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 048178322fa73f742861f29d4ceda41c
+guid: 516a982053f78a24e8890f74b0c338cc
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: container_flat
-    second: {fileID: 2100000, guid: a85144b797fea4f4c9f184caedcd1db7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: container_wawesurf
-    second: {fileID: 2100000, guid: da475a8e8e4f22f4aa6ebb3f6680ea9a, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
