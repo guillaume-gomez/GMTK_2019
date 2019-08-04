@@ -3,7 +3,27 @@ guid: 73c908e03ecfe6147aa749a73929d26e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DIOD
+    second: {fileID: 2100000, guid: a8b69f998c263fe4684729742d589faf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 831b7e22d112bd9409677e134ad98a33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door
+    second: {fileID: 2100000, guid: 4c03d2e337de5914eb40bb12e2cfb9f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: keyhole_metal
+    second: {fileID: 2100000, guid: fe2c8bf2d016e794383a91194f2614d9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

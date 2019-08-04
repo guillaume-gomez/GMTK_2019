@@ -3,7 +3,17 @@ guid: 44e68316b849cad4d9cc1bae6375ce97
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button_out
+    second: {fileID: 2100000, guid: e92a5091cf242b54abc28356debdbc6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button_red
+    second: {fileID: 2100000, guid: 3ec294f47bea86b4ca3f874df4c87edf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
