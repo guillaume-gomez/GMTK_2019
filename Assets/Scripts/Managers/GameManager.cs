@@ -95,22 +95,22 @@ public class GameManager : MonoBehaviour
         return soundsStr[index];
     }
 
-    public void PlaySound(string[] soundsStr)
+    public SMSound PlaySound(string[] soundsStr)
     {
-        if (muteFx)
-        {
-            return;
-        }
-        SoundManager.PlaySound(PickSound(soundsStr));
+      if(muteFx)
+      {
+        return null;
+      }
+      return SoundManager.PlaySound(PickSound(soundsStr));
     }
 
-    public void PlaySound(string soundsStr)
+    public SMSound PlaySound(string soundsStr)
     {
-        if (muteFx)
-        {
-            return;
-        }
-        SoundManager.PlaySound(soundsStr);
+      if(muteFx)
+      {
+        return null;
+      }
+      return SoundManager.PlaySound(soundsStr);
     }
 
     public void PlayMusic()
@@ -120,6 +120,20 @@ public class GameManager : MonoBehaviour
             return;
         }
         SoundManager.PlayMusic(musicStr);
+    }
+
+    public SMSound PlaySoundUI(string soundsStr)
+    {
+        if(muteFx)
+        {
+            return null;
+        }
+       return SoundManager.PlaySoundUI(soundsStr);
+    }
+
+    public void StopSound(SMSound smsound)
+    {
+        SoundManager.StopSound(smsound);
     }
 
 
