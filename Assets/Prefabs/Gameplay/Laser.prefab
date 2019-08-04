@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 4092124742571884830}
   - component: {fileID: 4092124742571884828}
   - component: {fileID: 570573963}
+  - component: {fileID: -5512986516949072162}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -286,6 +287,7 @@ MonoBehaviour:
   laserEnd: {fileID: 4092124741685852568}
   onLaserCollision: {fileID: 11400000, guid: f6d809be2e7d66f40badd43f917b4b4a, type: 2}
   enableLaser: 1
+  interval: 0
 --- !u!65 &570573963
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -299,3 +301,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5512986516949072162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092124742571884827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cdf7a74e381d24f979853496fd7710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundsStr:
+  - laser_1
+  - laser_2
+  - laser_3
