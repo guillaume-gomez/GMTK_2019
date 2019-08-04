@@ -686,6 +686,10 @@ public class SoundManager : MonoBehaviour
 
     bool IsSoundFinished(SMSound sound)
     {
+        if(sound == null) {
+            return true;
+        }
+
         if (sound.IsLoading)
             return false;
 
