@@ -15,7 +15,23 @@ public class Door : MonoBehaviour
 #endif
             return;
         }
-
+        Debug.Log("End level!");
         onDoorCollision.Raise();
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!onDoorCollision)
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            Debug.LogError("onDoorCollision variable not set, can not throw event");
+#endif
+            return;
+        }
+
+        Debug.Log("End level!");
+        onDoorCollision.Raise();
+    }
+
 }

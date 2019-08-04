@@ -47,10 +47,14 @@ public class SlidingCarpet : MonoBehaviour
         {
             m_currentCollider = m_collidersSet[i];
 
-            if (m_currentCollider.transform.parent == null)
+            //if (m_currentCollider.transform.parent == null)
+            //    m_currentCollider.transform.position += m_slidingVector;
+            //else
+            //    m_currentCollider.transform.parent.position += m_slidingVector;
+
+
                 m_currentCollider.transform.position += m_slidingVector;
-            else
-                m_currentCollider.transform.parent.position += m_slidingVector;
+
         }
     }
 }

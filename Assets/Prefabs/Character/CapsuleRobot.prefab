@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 9054033860668887481}
   m_Layer: 8
   m_Name: CapsuleRobot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,11 +617,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6021170687497770687}
     m_Modifications:
-    - target: {fileID: 6293447007838295228, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
-        type: 3}
-      propertyPath: m_Name
-      value: Feet
-      objectReference: {fileID: 0}
     - target: {fileID: 8965831729241618603, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -676,6 +671,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293447007838295228, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
+        type: 3}
+      propertyPath: m_Name
+      value: Feet
       objectReference: {fileID: 0}
     - target: {fileID: 10187482182299230, guid: a1473abe56ec4ab4396a6fea8f1b2e23,
         type: 3}
