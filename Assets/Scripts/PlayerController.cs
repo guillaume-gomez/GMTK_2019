@@ -88,7 +88,8 @@ public class PlayerController : MonoBehaviour
         verticaltimeElapsed = 0.0f;
       }
 
-      if (Input.GetButtonUp("Action") && !lockAction)
+      // for post mortem
+      /*if (Input.GetButtonUp("Action") && !lockAction)
       {
         if (!allowPlayerInput) goto result;
       }
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
             if (!allowPlayerInput) goto result;
             lockAction = true;
             fLScript.LoseHead();
-      }
+      }*/
 
 
       float horizontal = Input.GetAxis("Horizontal");

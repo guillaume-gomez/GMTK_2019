@@ -67,8 +67,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKey("r") || Input.GetKey("return"))
         {
-            bool allow = allowPlayerInput != null && allowPlayerInput.Value;
-            if (allow) Restart();
+            Restart();
         }
         else if (playOnPlayerDiedEvent)
         {
