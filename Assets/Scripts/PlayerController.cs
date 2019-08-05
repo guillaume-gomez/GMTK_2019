@@ -70,13 +70,15 @@ public class PlayerController : MonoBehaviour
 
     Vector3 m_currentXRotatorEulers = new Vector3();
     Vector3 m_currentYRotatorEulers = new Vector3();
-    private SMSound currentSoundPlayed;
+    private AudioSource audioData;
+
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         fLScript = limbPool.GetComponent<FallingLimb>();
+        audioData = GetComponent<AudioSource>();
     }
 
     // I read that input management should be here. I will do everything in FixedUpdate for the moment
@@ -151,6 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!m_lastRightPressed)
             {
+                PlayJetPackSound();
                 propellerLeft.Play();
                 m_rightTimer = 0f;
             }
@@ -164,6 +167,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseLeftArm(true);
                 m_rightTimer = 1f;
                 lockRight = true;
+                audioData.Stop();
                 propellerLeft.Stop();
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
@@ -175,6 +179,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!m_lastLeftPressed)
             {
+                PlayJetPackSound();
                 propellerRight.Play();
                 m_leftTimer = 0f;
             }
@@ -188,6 +193,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseRightArm(true);
                 m_leftTimer = 1f;
                 lockLeft = true;
+                audioData.Stop();
                 propellerRight.Stop();
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
 
@@ -219,6 +225,7 @@ public class PlayerController : MonoBehaviour
             if (!m_lastUpPressed)
             {
                 //rb.useGravity = false;
+                PlayJetPackSound();
                 propellerFeet.Play();
                 m_upTimer = 0f;
             }
@@ -233,6 +240,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseFeet(true);
                 m_upTimer = 1f;
                 lockJump = true;
+                audioData.Stop();
                 propellerFeet.Stop();
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
@@ -412,6 +420,13 @@ public class PlayerController : MonoBehaviour
         {
             particles.transform.position = pos;
             Destroy(particles.gameObject, 2f);
+        }
+    }
+
+    void PlayJetPackSound() {
+        if(!GameManager.instance.muteFx)
+        {
+            audioData.Play();
         }
     }
 
