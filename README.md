@@ -16,3 +16,5 @@ https://guillaume-gomez.github.io/GMTK_2019/
 | Maxence Lottin | Art |
 | Moustafa Koterba | Programmer |
 | Guillaume Gomez | Programmer |
+
+[link to itch.io page](https://luvial.itch.io/roboto)
