@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6021170687497770682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.2, y: 8.75, z: -5.07}
+  m_LocalPosition: {x: -8.99, y: 8.75, z: -5.07}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 3188256877176339887}
@@ -245,8 +245,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6749003, y: 1.0618856, z: 1.03}
-  m_Center: {x: 0, y: -0.19339168, z: -0.33}
+  m_Size: {x: 0.68, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.2, z: -0.5}
 --- !u!82 &5366403062016426325
 AudioSource:
   m_ObjectHideFlags: 0
@@ -908,6 +908,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.41
       objectReference: {fileID: 0}
+    - target: {fileID: 2961379755442664605, guid: f1637ef693713e44884ea6ea96a7ebb6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1637ef693713e44884ea6ea96a7ebb6, type: 3}
 --- !u!4 &7468614052711999786 stripped
@@ -1136,6 +1141,16 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.44
       objectReference: {fileID: 0}
+    - target: {fileID: 1767927123758638398, guid: 558aba5ebd9e1a743806d0c40d1c0450,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767927123758638398, guid: 558aba5ebd9e1a743806d0c40d1c0450,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6594068737801114330, guid: 558aba5ebd9e1a743806d0c40d1c0450,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1241,6 +1256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078926390011738010, guid: 8b107519d50fe1f48aa0eaabf5f9b568,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2826562065892422003, guid: 8b107519d50fe1f48aa0eaabf5f9b568,
         type: 3}
