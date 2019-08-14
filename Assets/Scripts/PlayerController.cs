@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
     void StopJetPackSound() {
         if(!GameManager.instance.muteFx)
         {
-        audioData.Stop;
+            audioData.Stop();
         }
     }
 
