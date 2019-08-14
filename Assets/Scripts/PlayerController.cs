@@ -72,8 +72,6 @@ public class PlayerController : MonoBehaviour
     Vector3 m_currentYRotatorEulers = new Vector3();
     private AudioSource audioData;
 
-
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -167,7 +165,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseLeftArm(true);
                 m_rightTimer = 1f;
                 lockRight = true;
-                audioData.Stop();
+                StopJetPackSound();
                 propellerLeft.Stop();
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
@@ -193,7 +191,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseRightArm(true);
                 m_leftTimer = 1f;
                 lockLeft = true;
-                audioData.Stop();
+                StopJetPackSound();
                 propellerRight.Stop();
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
 
@@ -208,8 +206,6 @@ public class PlayerController : MonoBehaviour
         m_lastRightPressed = rightPressed;
 
         return (left + right) * horizontalMaxSpeed;
-
-
     }
 
 
@@ -240,7 +236,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseFeet(true);
                 m_upTimer = 1f;
                 lockJump = true;
-                audioData.Stop();
+                StopJetPackSound();
                 propellerFeet.Stop();
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
@@ -251,166 +247,7 @@ public class PlayerController : MonoBehaviour
         m_lastUpPressed = upPressed;
 
         return up * verticalMaxSpeed;
-
-        //float result = 0;
-        //float vertical = Input.GetAxis("Vertical");
-        //if (vertical > 0 && !lockJump)
-        //{
-        //    GameManager.instance.PlaySound("propeller_loop");
-        //    propellerFeet.Emit(1);
-        //    wasJump = true;
-        //    verticaltimeElapsed += Time.deltaTime;
-        //    float acceleration = verticalCurve.Evaluate(verticaltimeElapsed);
-        //    result = jumpSpeed * acceleration;
-        //    // god mode
-        //    if (GameManager.instance.godMode)
-        //    {
-        //        fLScript.LoseFeet();
-        //    }
-        //}
-
-        //if (vertical <= 0 && wasJump)
-        //{
-        //    lockJump = true;
-        //    verticaltimeElapsed = 0.0f;
-        //    fLScript.LoseFeet();
-        //}
-
-        //if (GameManager.instance.godMode && vertical == 0)
-        //{
-        //    verticaltimeElapsed = 0.0f;
-        //}
-
-        //return result;
     }
-
-    //Vector3 ComputedVector()
-    //{
-    //    Vector3 result = new Vector3();
-
-    //    float vertical = Input.GetAxis("Vertical");
-    //    if (vertical > 0 && !lockJump)
-    //    {
-    //        GameManager.instance.PlaySound("jetpack");
-    //        propellerFeet.Emit(1);
-    //        if (!allowPlayerInput) goto result;
-    //        wasJump = true;
-    //        verticaltimeElapsed += Time.deltaTime;
-    //        float acceleration = verticalCurve.Evaluate(verticaltimeElapsed);
-    //        result.y = jumpSpeed * acceleration;
-    //        // god mode
-    //        if (GameManager.instance.godMode)
-    //        {
-    //            fLScript.LoseFeet();
-    //        }
-    //    }
-
-    //    if (vertical <= 0 && wasJump)
-    //    {
-    //        lockJump = true;
-    //        verticaltimeElapsed = 0.0f;
-    //        fLScript.LoseFeet();
-    //    }
-
-    //    if (GameManager.instance.godMode && vertical == 0)
-    //    {
-    //        verticaltimeElapsed = 0.0f;
-    //    }
-
-    //    // for post mortem
-    //    /*if (Input.GetButtonUp("Action") && !lockAction)
-    //    {
-    //      if (!allowPlayerInput) goto result;
-    //    }
-
-    //    if(Input.GetButtonDown("Action"))
-    //    {
-    //          if (!allowPlayerInput) goto result;
-    //          lockAction = true;
-    //          fLScript.LoseHead();
-    //    }*/
-
-
-    //    float horizontal = Input.GetAxis("Horizontal");
-    //    // if we pressed left and right at the same time
-    //    if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow))
-    //    {
-    //        horizontal = 0.0f;
-    //        if (!allowPlayerInput) goto result;
-
-    //    }
-
-    //    if (horizontal < 0.0f)
-    //    {
-    //        wasLeft = true;
-
-    //        if (wasRight)
-    //        {
-    //            lockRight = true;
-    //            fLScript.LoseLeftArm();
-    //        }
-    //        // god mode
-    //        if (GameManager.instance.godMode)
-    //        {
-    //            fLScript.LoseLeftArm();
-    //        }
-    //    }
-    //    else if (horizontal > 0.0f)
-    //    {
-    //        wasRight = true;
-
-    //        if (wasLeft)
-    //        {
-    //            lockLeft = true;
-    //            fLScript.LoseRightArm();
-    //        }
-    //        //god mode
-    //        if (GameManager.instance.godMode)
-    //        {
-    //            fLScript.LoseRightArm();
-    //        }
-    //    }
-    //    else
-    //    { //getAxisHorizontal = 0
-    //        if (wasLeft)
-    //        {
-    //            lockLeft = true;
-    //            fLScript.LoseRightArm();
-    //        }
-
-    //        if (wasRight)
-    //        {
-    //            lockRight = true;
-    //            fLScript.LoseLeftArm();
-    //            //propeller.Stop();
-    //        }
-    //    }
-
-    //    if (horizontal < 0.0f && !lockLeft)
-    //    {
-    //        propellerRight.Emit(1);
-    //        horizontaltimeElapsed += Time.deltaTime;
-    //        float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
-    //        result.x = -speed * acceleration;
-    //    }
-    //    else if (horizontal > 0.0f && !lockRight)
-    //    {
-    //        propellerLeft.Emit(1);
-    //        horizontaltimeElapsed += Time.deltaTime;
-    //        float acceleration = horizontalCurve.Evaluate(horizontaltimeElapsed);
-    //        result.x = speed * acceleration;
-    //    }
-    //    else
-    //    {
-    //        horizontaltimeElapsed = 0.0f;
-    //    }
-
-    //    result:
-    //    // return the computed vector3
-    //    return result;
-    //}
-
-
 
     void PlayDestroyedComponentParticles(Vector3 pos)
     {
@@ -427,6 +264,13 @@ public class PlayerController : MonoBehaviour
         if(!GameManager.instance.muteFx)
         {
             audioData.Play();
+        }
+    }
+
+    void StopJetPackSound() {
+        if(!GameManager.instance.muteFx)
+        {
+            audioData.Stop();
         }
     }
 
