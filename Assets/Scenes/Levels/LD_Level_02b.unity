@@ -806,6 +806,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3783393179221085826, guid: 1505b5b5912537f4ba47b40bb75aa346,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783393179221085826, guid: 1505b5b5912537f4ba47b40bb75aa346,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1505b5b5912537f4ba47b40bb75aa346, type: 3}
 --- !u!4 &817306779 stripped
@@ -1356,7 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: LD_Level_03
-  delay: 0.5
+  loadDelay: 1
 --- !u!4 &1243790644
 Transform:
   m_ObjectHideFlags: 0
@@ -1837,7 +1847,7 @@ PrefabInstance:
     - target: {fileID: 1547487398750762887, guid: 08eb31842369b754f899afd789416346,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08eb31842369b754f899afd789416346, type: 3}

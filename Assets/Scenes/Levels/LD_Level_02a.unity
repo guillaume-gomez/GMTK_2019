@@ -665,12 +665,12 @@ PrefabInstance:
     - target: {fileID: 7486805297668210183, guid: 1505b5b5912537f4ba47b40bb75aa346,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7486805297668210183, guid: 1505b5b5912537f4ba47b40bb75aa346,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7486805297668210183, guid: 1505b5b5912537f4ba47b40bb75aa346,
         type: 3}
@@ -1291,12 +1291,12 @@ PrefabInstance:
     - target: {fileID: 7486805297668210183, guid: 1505b5b5912537f4ba47b40bb75aa346,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 7486805297668210183, guid: 1505b5b5912537f4ba47b40bb75aa346,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7486805297668210183, guid: 1505b5b5912537f4ba47b40bb75aa346,
         type: 3}
@@ -1341,7 +1341,7 @@ PrefabInstance:
     - target: {fileID: 7486805297668210183, guid: 1505b5b5912537f4ba47b40bb75aa346,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1505b5b5912537f4ba47b40bb75aa346, type: 3}
@@ -1720,7 +1720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: LD_Level_02b
-  delay: 0.5
+  loadDelay: 1
 --- !u!4 &1475687368
 Transform:
   m_ObjectHideFlags: 0
