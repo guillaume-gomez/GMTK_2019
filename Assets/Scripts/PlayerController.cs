@@ -146,6 +146,8 @@ public class PlayerController : MonoBehaviour
         bool rightPressed = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
         bool leftPressed = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
 
+        bool upPressed = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
+
 
         if (!lockRight && rightPressed)
         {
@@ -166,7 +168,10 @@ public class PlayerController : MonoBehaviour
                 m_rightTimer = 1f;
                 lockRight = true;
                 StopJetPackSound();
-                propellerLeft.Stop();
+                if(!leftPressed && !upPressed)
+                {
+                    propellerLeft.Stop();
+                }
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
             m_rightTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
@@ -192,7 +197,10 @@ public class PlayerController : MonoBehaviour
                 m_leftTimer = 1f;
                 lockLeft = true;
                 StopJetPackSound();
-                propellerRight.Stop();
+                if(!rightPressed && !upPressed)
+                {
+                    propellerRight.Stop();
+                }
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
 
             }
@@ -216,6 +224,9 @@ public class PlayerController : MonoBehaviour
 
         bool upPressed = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
 
+        bool rightPressed = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
+        bool leftPressed = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
+
         if (!lockJump && upPressed)
         {
             if (!m_lastUpPressed)
@@ -237,7 +248,10 @@ public class PlayerController : MonoBehaviour
                 m_upTimer = 1f;
                 lockJump = true;
                 StopJetPackSound();
-                propellerFeet.Stop();
+                if(!leftPressed && !rightPressed)
+                {
+                    propellerFeet.Stop();
+                }
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
             m_upTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
