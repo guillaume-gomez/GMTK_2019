@@ -3,6 +3,13 @@ A game made for GMTK Game Jam 2019
 
 ![cover.png](cover.png)
 
+## Controls
+| Action | keys |
+|--------|------|
+|left/right | directionnal arrows/ (A/D) |
+| jetpack | up / W |
+| restart level | R |
+
 
 [play online](https://guillaume-gomez.github.io/GMTK_2019/)
 
