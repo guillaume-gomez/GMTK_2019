@@ -6,8 +6,8 @@ A game made for GMTK Game Jam 2019
 ## Controls
 | Action | keys |
 |--------|------|
-|left/right | directionnal arrows/ (A/D) |
-| jetpack | up / W |
+|left/right | Directionnal arrows/ (A/D) |
+| jetpack | Up / W |
 | restart level | R |
 
 
