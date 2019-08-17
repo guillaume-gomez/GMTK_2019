@@ -54,6 +54,10 @@ public class PlayerController : MonoBehaviour
     private float m_leftTimer;
     private float m_upTimer;
 
+    //Sounds management
+    private bool snd_isPropelled = false;
+
+
     [Header("Read Only")]
     public float right;
     public float left;
@@ -113,9 +117,7 @@ public class PlayerController : MonoBehaviour
 
         xRotator.localEulerAngles = m_currentXRotatorEulers;
         yRotator.localEulerAngles = m_currentYRotatorEulers;
-
-
-
+        
     }
 
     public FallingLimb GetFallingLimb()
@@ -148,6 +150,12 @@ public class PlayerController : MonoBehaviour
 
         bool upPressed = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
 
+        if (snd_isPropelled == true && rightPressed == false && leftPressed == false && upPressed == false) {
+            snd_isPropelled = false;
+            StopJetPackSound();
+            Debug.LogWarning("Stop propeller sound");
+        }
+
 
         if (!lockRight && rightPressed)
         {
@@ -167,7 +175,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseLeftArm(true);
                 m_rightTimer = 1f;
                 lockRight = true;
-                StopJetPackSound();
+                //StopJetPackSound();
                 if(!leftPressed && !upPressed)
                 {
                     propellerLeft.Stop();
@@ -196,7 +204,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseRightArm(true);
                 m_leftTimer = 1f;
                 lockLeft = true;
-                StopJetPackSound();
+                //StopJetPackSound();
                 if(!rightPressed && !upPressed)
                 {
                     propellerRight.Stop();
@@ -227,6 +235,14 @@ public class PlayerController : MonoBehaviour
         bool rightPressed = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
         bool leftPressed = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
 
+        if (snd_isPropelled == true && rightPressed == false && leftPressed == false && upPressed == false)
+        {
+            snd_isPropelled = false;
+            StopJetPackSound();
+            Debug.Log("Stop propeller sound");
+        }
+
+
         if (!lockJump && upPressed)
         {
             if (!m_lastUpPressed)
@@ -247,7 +263,7 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseFeet(true);
                 m_upTimer = 1f;
                 lockJump = true;
-                StopJetPackSound();
+                //StopJetPackSound();
                 if(!leftPressed && !rightPressed)
                 {
                     propellerFeet.Stop();
@@ -275,7 +291,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void PlayJetPackSound() {
-        if(!GameManager.instance.muteFx)
+        snd_isPropelled = true;
+        if (!GameManager.instance.muteFx)
         {
             audioData.Play();
         }
