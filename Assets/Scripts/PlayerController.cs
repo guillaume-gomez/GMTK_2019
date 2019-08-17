@@ -175,13 +175,11 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseLeftArm(true);
                 m_rightTimer = 1f;
                 lockRight = true;
-                //StopJetPackSound();
-                if(!leftPressed && !upPressed)
-                {
-                    propellerLeft.Stop();
-                }
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
+
+            if (propellerLeft.isPlaying) { propellerLeft.Stop(); }
+
             m_rightTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             right = Mathf.Min(horizontalDeccelerationCurve.Evaluate(m_rightTimer), 1f);
         }
@@ -204,14 +202,12 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseRightArm(true);
                 m_leftTimer = 1f;
                 lockLeft = true;
-                //StopJetPackSound();
-                if(!rightPressed && !upPressed)
-                {
-                    propellerRight.Stop();
-                }
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
 
             }
+
+            if (propellerRight.isPlaying){propellerRight.Stop();}
+
             m_leftTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             left = Mathf.Max(horizontalDeccelerationCurve.Evaluate(m_leftTimer), 0f);
         }
@@ -263,13 +259,11 @@ public class PlayerController : MonoBehaviour
                 fLScript.LoseFeet(true);
                 m_upTimer = 1f;
                 lockJump = true;
-                //StopJetPackSound();
-                if(!leftPressed && !rightPressed)
-                {
-                    propellerFeet.Stop();
-                }
                 PlayDestroyedComponentParticles(fLScript.headCenter.transform.position);
             }
+
+            if (propellerFeet.isPlaying){propellerFeet.Stop();}
+
             m_upTimer -= Time.deltaTime * 1f / horiztonalDeccelerationTime;
             up = Mathf.Max(verticalDeccelerationCurve.Evaluate(m_upTimer), 0f);
         }
