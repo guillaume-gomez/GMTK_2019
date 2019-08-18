@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 2297035197083260342}
   - component: {fileID: 9029505612720357545}
   - component: {fileID: 3839197744234212154}
-  - component: {fileID: 7149503372171355433}
+  - component: {fileID: 1189228710348258895}
   m_Layer: 0
   m_Name: RightButton
   m_TagString: Untagged
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7149503372171355433}
+      - m_Target: {fileID: 0}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -358,7 +358,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7149503372171355433
+--- !u!114 &1189228710348258895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,9 +367,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2752923286186415496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a46e75eaf18ec44be009a0898cbf85, type: 3}
+  m_Script: {fileID: 11500000, guid: a49b785598e15cc43a59deff263e12de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disabledImage: {fileID: 21300000, guid: 18030843729f26c40afdd8003e920067, type: 3}
+  originalImage: {fileID: 21300000, guid: 1798bcc2c59cbdc4382868ab0823c347, type: 3}
 --- !u!1 &2862897627401840201
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +384,7 @@ GameObject:
   - component: {fileID: 306841811797056495}
   - component: {fileID: 6024981722977600786}
   - component: {fileID: 352320927102728340}
-  - component: {fileID: 109649434766765347}
+  - component: {fileID: 7571785392847330732}
   m_Layer: 0
   m_Name: UpButton
   m_TagString: Untagged
@@ -491,7 +493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 109649434766765347}
+      - m_Target: {fileID: 0}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -504,7 +506,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &109649434766765347
+--- !u!114 &7571785392847330732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -513,9 +515,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2862897627401840201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a46e75eaf18ec44be009a0898cbf85, type: 3}
+  m_Script: {fileID: 11500000, guid: a49b785598e15cc43a59deff263e12de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disabledImage: {fileID: 21300000, guid: 5000f0c803ba55447a103e98908a63b9, type: 3}
+  originalImage: {fileID: 21300000, guid: 46a1aeb05fdf7db40a9196c5010ae1a2, type: 3}
 --- !u!1 &3120153640604486201
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +816,9 @@ MonoBehaviour:
   onPlayerDiedEvent: {fileID: 11400000, guid: 80755076444f0114ba6dc6a2cbaf2631, type: 2}
   allowPlayerInput: {fileID: 11400000, guid: ee50fa24659ad234fa15d24dc026c3c1, type: 2}
   playOnPlayerDiedEvent: 0
+  leftInput: {fileID: 4012207284339261363}
+  rightInput: {fileID: 3839197744234212154}
+  upInput: {fileID: 352320927102728340}
 --- !u!1 &4556036231334296714
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +910,7 @@ GameObject:
   - component: {fileID: 4564249338288421809}
   - component: {fileID: 4639037522087341156}
   - component: {fileID: 4012207284339261363}
-  - component: {fileID: 3823271841849175538}
+  - component: {fileID: 3862168918387609387}
   m_Layer: 0
   m_Name: LeftButton
   m_TagString: Untagged
@@ -1012,7 +1019,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3823271841849175538}
+      - m_Target: {fileID: 0}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1025,7 +1032,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &3823271841849175538
+--- !u!114 &3862168918387609387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1034,9 +1041,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6058705814165506084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a46e75eaf18ec44be009a0898cbf85, type: 3}
+  m_Script: {fileID: 11500000, guid: a49b785598e15cc43a59deff263e12de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disabledImage: {fileID: 21300000, guid: 12d8025437d6a0d41a9f4c34d05905ee, type: 3}
+  originalImage: {fileID: 21300000, guid: 2971645a94906484990c05cc5efb3fae, type: 3}
 --- !u!1 &6985790656531654468
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
 
     public static bool loadingScene = false;
 
+    public Button leftInput;
+    public Button rightInput;
+    public Button upInput;
+
 
     public void SetNotLoadingSceneToFalseAfterTime(float time)
     {
@@ -63,6 +67,40 @@ public class GameManager : MonoBehaviour
     //This is called each time a scene is loaded.
     static private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
+    }
+
+    public void DisableInputButton(string inputName)
+    {
+        switch(inputName)
+        {
+            case "left":
+                leftInput.GetComponent<InputButtonScript>().DisableButton();
+            break;
+            case "right":
+                rightInput.GetComponent<InputButtonScript>().DisableButton();
+            break;
+            case "up":
+                upInput.GetComponent<InputButtonScript>().DisableButton();
+            break;
+        }
+
+    }
+
+    public void EnableInputButton(string inputName)
+    {
+        switch(inputName)
+        {
+            case "left":
+                leftInput.GetComponent<InputButtonScript>().EnableButton();
+            break;
+            case "right":
+                rightInput.GetComponent<InputButtonScript>().EnableButton();
+            break;
+            case "up":
+                upInput.GetComponent<InputButtonScript>().EnableButton();
+            break;
+        }
+
     }
 
 

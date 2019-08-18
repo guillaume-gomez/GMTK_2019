@@ -76,11 +76,9 @@ public class PlayerController : MonoBehaviour
         audioData = GetComponent<AudioSource>();
     }
 
-    // I read that input management should be here. I will do everything in FixedUpdate for the moment
-    // Don't hesitate to correct the code if a miss something :)
     void Update()
     {
-
+        InputButtonMGMT();
     }
 
     public float jumpForce;
@@ -212,6 +210,31 @@ public class PlayerController : MonoBehaviour
         m_lastRightPressed = rightPressed;
 
         return (left + right) * horizontalMaxSpeed;
+    }
+
+    void InputButtonMGMT()
+    {
+        if(lockLeft)
+        {
+            GameManager.instance.DisableInputButton("left");
+        } else
+        {
+            GameManager.instance.EnableInputButton("left");
+        }
+
+        if(lockRight) {
+            GameManager.instance.DisableInputButton("right");
+        } else
+        {
+            GameManager.instance.EnableInputButton("right");
+        }
+
+        if(lockJump) {
+            GameManager.instance.DisableInputButton("up");
+        } else
+        {
+            GameManager.instance.EnableInputButton("up");
+        }
     }
 
 
