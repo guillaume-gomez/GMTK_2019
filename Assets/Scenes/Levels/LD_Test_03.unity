@@ -454,7 +454,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165805962}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02eed1212af721740869935534ba3b68, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -581,7 +581,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453582264}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02eed1212af721740869935534ba3b68, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -673,7 +673,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463746219}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02eed1212af721740869935534ba3b68, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -765,7 +765,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546743836}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02eed1212af721740869935534ba3b68, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -857,7 +857,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764671993}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 02eed1212af721740869935534ba3b68, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1081,16 +1081,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6021170687497770681, guid: 8446465ed6882b34fbe2ac3cf8146047,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 540bae3083dc5ff4a933d8008f02c22c, type: 2}
     - target: {fileID: 6021170687497770680, guid: 8446465ed6882b34fbe2ac3cf8146047,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6021170687497770681, guid: 8446465ed6882b34fbe2ac3cf8146047,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 540bae3083dc5ff4a933d8008f02c22c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8446465ed6882b34fbe2ac3cf8146047, type: 3}
 --- !u!1001 &6104347390306358663
