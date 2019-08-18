@@ -9,7 +9,6 @@ using RoboRyanTron.Unite2017.Variables;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    private int level = 0;
     private string musicStr = "music_2";
 
     public bool godMode = true;
