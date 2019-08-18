@@ -19,16 +19,9 @@ public class PlayerController : MonoBehaviour
     public Transform yRotator;
     public Transform xRotator;
 
-
-    //private bool wasLeft = false;
-    //private bool wasRight = false;
-    //private bool wasJump = false;
-
     public GameObject limbPool;
     private Rigidbody rb;
     private FallingLimb fLScript;
-    //private float horizontaltimeElapsed;
-    //private float verticaltimeElapsed;
 
     [Header("Horizontal")]
     public float horizontalMaxSpeed;
@@ -124,7 +117,7 @@ public class PlayerController : MonoBehaviour
         return fLScript;
     }
 
-    public float GetCurrentHorizontal()
+    float GetCurrentHorizontal()
     {
         return left + right;
     }
