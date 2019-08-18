@@ -78,10 +78,8 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         }
 
-        if (allowPlayerInput && Input.GetKey("r") || Input.GetKey("return"))
+        if (allowPlayerInput && Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Return))
         {
-            //PlaySound("autodestruction");
-            //Invoke("Restart", 1.0f);
             Restart();
         }
         else if (playOnPlayerDiedEvent)
