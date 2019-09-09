@@ -18,7 +18,7 @@ Each move matter
 | restart level | R |
 
 
-[play online](https://guillaume-gomez.github.io/GMTK_2019/)
+[play online (post jam version)](https://guillaume-gomez.github.io/GMTK_2019/)
 
 ## Team
 
@@ -31,4 +31,4 @@ Each move matter
 | Moustafa Koterba | Programmer |
 | Guillaume Gomez | Programmer |
 
-[link to itch.io page](https://luvial.itch.io/roboto)
+[link to itch.io page (and play game jam version)](https://luvial.itch.io/roboto)
